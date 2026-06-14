@@ -12,14 +12,21 @@ export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-background/80 border-b border-border">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="font-bold text-xl tracking-tight">
+      <header className="fixed top-4 md:top-6 z-50 w-full flex justify-center px-4 pointer-events-none">
+        <div className="pointer-events-auto flex items-center justify-between px-6 py-3 rounded-full backdrop-blur-xl bg-background/70 border border-border/50 shadow-lg shadow-black/5 dark:shadow-white/5 transition-all hover:bg-background/80">
+          <div className="font-extrabold text-xl tracking-tight mr-6 md:pr-6 md:border-r border-border/50">
             O&apos;Neil<span className="text-accent">.</span>
           </div>
-          <nav className="flex items-center gap-4">
-            <ThemeToggle />
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground mr-6">
+            <a href="#about" className="hover:text-foreground transition-colors">About</a>
+            <a href="#projects" className="hover:text-foreground transition-colors">Projects</a>
+            <a href="#startup-corner" className="hover:text-foreground transition-colors">Startups</a>
+            <a href="#skills" className="hover:text-foreground transition-colors">Skills</a>
+            <a href="#journey" className="hover:text-foreground transition-colors">Journey</a>
           </nav>
+          <div className="flex items-center md:pl-6 md:border-l border-border/50">
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
