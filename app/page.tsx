@@ -14,7 +14,7 @@ export default async function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Header */}
       <header className="fixed top-4 md:top-6 z-50 w-full flex justify-center px-4 pointer-events-none">
-        <div className="pointer-events-auto flex items-center justify-between px-6 py-3 rounded-full backdrop-blur-xl bg-background/70 border border-border/50 shadow-lg shadow-black/5 dark:shadow-white/5 transition-all hover:bg-background/80">
+        <div className="pointer-events-auto flex items-center justify-between px-6 py-3 rounded-none backdrop-blur-xl bg-background/70 border border-border/80 shadow-lg shadow-black/5 dark:shadow-white/5 transition-all hover:bg-background/80">
           <div className="font-extrabold text-xl tracking-tight mr-6 md:pr-6 md:border-r border-border/50">
             O&apos;Neil<span className="text-accent">.</span>
           </div>
