@@ -12,9 +12,9 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
     return (
       <motion.div
         ref={ref}
-        whileHover={{ y: -5 }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
-        className={`rounded-xl border border-border bg-background/50 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow ${className}`}
+        whileHover={{ y: -4, scale: 1.01 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className={`rounded-2xl border border-border/80 bg-background/70 backdrop-blur-md shadow-sm hover:shadow-xl hover:border-accent/40 transition-all duration-300 ${className}`}
         {...props}
       >
         {children}
