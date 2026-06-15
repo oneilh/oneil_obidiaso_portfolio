@@ -5,9 +5,10 @@ import { Card } from "@/components/ui/card";
 import { FiArrowRight, FiGithub, FiLinkedin, FiMail, FiStar, FiExternalLink, FiDownload } from "react-icons/fi";
 import { contact, startups, skills, timeline } from "@/data/portfolio";
 import { getFeaturedProjects } from "@/lib/github";
+import { projectsMeta } from "@/data/projects-meta";
+import { ProjectCard } from "@/components/ProjectCard";
 
 export default async function Home() {
-  const projects = await getFeaturedProjects("vercel"); // Using a placeholder user to ensure data is returned for now
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -80,28 +81,8 @@ export default async function Home() {
         <section id="projects">
           <SectionHeading>Featured Projects</SectionHeading>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((repo) => (
-              <Card key={repo.id} className="flex flex-col h-full">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold">
-                    <a href={repo.html_url} target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">
-                      {repo.name}
-                    </a>
-                  </h3>
-                  <div className="flex items-center gap-1 text-muted-foreground text-sm">
-                    <FiStar aria-hidden="true" /> <span>{repo.stargazers_count}</span>
-                  </div>
-                </div>
-                <p className="text-muted-foreground mb-6 flex-grow">{repo.description}</p>
-                <div className="flex items-center justify-between mt-auto pt-4 border-t border-border">
-                  <span className="text-sm font-medium text-accent">{repo.language}</span>
-                  <a href={repo.homepage || repo.html_url} target="_blank" rel="noreferrer">
-                    <Button variant="ghost" size="sm" className="gap-2">
-                      View <FiExternalLink aria-hidden="true" />
-                    </Button>
-                  </a>
-                </div>
-              </Card>
+            {projectsMeta.map((project) => (
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
         </section>
@@ -114,7 +95,7 @@ export default async function Home() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {startups.map((startup, idx) => (
-              <Card key={idx} className="relative overflow-hidden group">
+              <Card key={idx} className="relative overflow-hidden group p-6">
                 <div className="absolute top-0 right-0 p-3">
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-accent/10 text-accent border border-accent/20">
                     {startup.status}
