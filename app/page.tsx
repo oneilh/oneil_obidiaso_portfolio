@@ -71,7 +71,7 @@ export default async function Home() {
           <SectionHeading>About Me</SectionHeading>
           <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>
-              Frontend engineer obsessed with product thinking and clean UX. I&apos;ve tutored web development, shipped freelance work, and I&apos;m constantly building—learning through execution. My stack: React, Next.js, and growing full-stack skills. I care about systems, mental models, and the details that separate good products from great ones.
+              I am a frontend engineer obsessed with product thinking and clean UX. I have tutored in web development, shipped freelance work, and I am constantly building and learning through execution. My tech stack includes React, Next.js, and growing full-stack skills. I care about systems, mental models, and the details that separate good products from great ones.
             </p>
           </div>
         </section>
@@ -187,7 +187,7 @@ export default async function Home() {
         <section id="contact" className="py-12 border-t border-border flex flex-col items-center text-center">
           <h2 className="text-4xl font-extrabold tracking-tight mb-4">Let&apos;s Build Something.</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-xl">
-            Whether you&apos;re a recruiter, a startup looking for a builder, or someone with a wild idea—I&apos;d love to connect.
+            Whether you&apos;re a recruiter, a startup looking for a builder, or someone with a wild idea, I would love to connect.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href={`mailto:${contact.email}`}>
