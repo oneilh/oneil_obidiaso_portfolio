@@ -43,23 +43,23 @@ export default async function Home() {
           <div className="flex flex-wrap items-center gap-4">
             <a href="#projects">
               <Button size="lg" className="gap-2">
-                View Projects <FiArrowRight />
+                View Projects <FiArrowRight aria-hidden="true" />
               </Button>
             </a>
             <div className="flex items-center gap-2 ml-4">
-              <a href={contact.github} target="_blank" rel="noreferrer">
+              <a href={contact.github} target="_blank" rel="noreferrer" aria-label="GitHub Profile">
                 <Button variant="ghost" size="sm" className="w-10 h-10 p-0 rounded-full">
-                  <FiGithub className="w-5 h-5" />
+                  <FiGithub className="w-5 h-5" aria-hidden="true" />
                 </Button>
               </a>
-              <a href={contact.linkedin} target="_blank" rel="noreferrer">
+              <a href={contact.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn Profile">
                 <Button variant="ghost" size="sm" className="w-10 h-10 p-0 rounded-full">
-                  <FiLinkedin className="w-5 h-5" />
+                  <FiLinkedin className="w-5 h-5" aria-hidden="true" />
                 </Button>
               </a>
-              <a href={`mailto:${contact.email}`}>
+              <a href={`mailto:${contact.email}`} aria-label="Send Email">
                 <Button variant="ghost" size="sm" className="w-10 h-10 p-0 rounded-full">
-                  <FiMail className="w-5 h-5" />
+                  <FiMail className="w-5 h-5" aria-hidden="true" />
                 </Button>
               </a>
             </div>
@@ -71,14 +71,7 @@ export default async function Home() {
           <SectionHeading>About Me</SectionHeading>
           <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>
-              I specialize in bridging the gap between design and engineering. While my core expertise is in 
-              frontend development (React, Next.js), I care deeply about the entire product lifecycle—from 
-              database schema design to the final user micro-interactions.
-            </p>
-            <p>
-              Currently, I am learning and diving deeper into Advanced AI integrations, Serverless Edge computing, 
-              and optimizing web performance for low-bandwidth environments. I believe a great developer understands 
-              the <em>why</em> behind a product, not just the <em>how</em>.
+              Frontend engineer obsessed with product thinking and clean UX. I&apos;ve tutored web development, shipped freelance work, and I&apos;m constantly building—learning through execution. My stack: React, Next.js, and growing full-stack skills. I care about systems, mental models, and the details that separate good products from great ones.
             </p>
           </div>
         </section>
@@ -96,7 +89,7 @@ export default async function Home() {
                     </a>
                   </h3>
                   <div className="flex items-center gap-1 text-muted-foreground text-sm">
-                    <FiStar /> <span>{repo.stargazers_count}</span>
+                    <FiStar aria-hidden="true" /> <span>{repo.stargazers_count}</span>
                   </div>
                 </div>
                 <p className="text-muted-foreground mb-6 flex-grow">{repo.description}</p>
@@ -104,7 +97,7 @@ export default async function Home() {
                   <span className="text-sm font-medium text-accent">{repo.language}</span>
                   <a href={repo.homepage || repo.html_url} target="_blank" rel="noreferrer">
                     <Button variant="ghost" size="sm" className="gap-2">
-                      View <FiExternalLink />
+                      View <FiExternalLink aria-hidden="true" />
                     </Button>
                   </a>
                 </div>
@@ -143,7 +136,7 @@ export default async function Home() {
               <div className="flex flex-wrap gap-3">
                 {skills.frontend.map((skill) => (
                   <div key={skill.name} className="flex items-center gap-2 px-4 py-2 bg-muted/50 rounded-lg border border-border/50 text-sm font-medium hover:bg-muted transition-colors">
-                    <skill.icon className="w-4 h-4 text-accent" /> {skill.name}
+                    <skill.icon className="w-4 h-4 text-accent" aria-hidden="true" /> {skill.name}
                   </div>
                 ))}
               </div>
@@ -154,7 +147,7 @@ export default async function Home() {
                 <div className="flex flex-wrap gap-3">
                   {skills.baas.map((skill) => (
                     <div key={skill.name} className="flex items-center gap-2 px-4 py-2 bg-muted/50 rounded-lg border border-border/50 text-sm font-medium hover:bg-muted transition-colors">
-                      <skill.icon className="w-4 h-4 text-accent" /> {skill.name}
+                      <skill.icon className="w-4 h-4 text-accent" aria-hidden="true" /> {skill.name}
                     </div>
                   ))}
                 </div>
@@ -164,7 +157,7 @@ export default async function Home() {
                 <div className="flex flex-wrap gap-3">
                   {skills.tools.map((skill) => (
                     <div key={skill.name} className="flex items-center gap-2 px-4 py-2 bg-muted/50 rounded-lg border border-border/50 text-sm font-medium hover:bg-muted transition-colors">
-                      <skill.icon className="w-4 h-4 text-accent" /> {skill.name}
+                      <skill.icon className="w-4 h-4 text-accent" aria-hidden="true" /> {skill.name}
                     </div>
                   ))}
                 </div>
@@ -199,12 +192,12 @@ export default async function Home() {
           <div className="flex flex-wrap justify-center gap-4">
             <a href={`mailto:${contact.email}`}>
               <Button size="lg" className="gap-2">
-                <FiMail /> Say Hello
+                <FiMail aria-hidden="true" /> Say Hello
               </Button>
             </a>
             <a href={contact.resume} target="_blank" rel="noreferrer">
               <Button variant="outline" size="lg" className="gap-2">
-                <FiDownload /> View Resume
+                <FiDownload aria-hidden="true" /> View Resume
               </Button>
             </a>
           </div>
