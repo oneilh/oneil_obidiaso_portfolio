@@ -35,10 +35,10 @@ export default async function Home() {
         {/* Hero Section */}
         <section className="pt-12 md:pt-24 flex flex-col items-start max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.1] mb-6">
-            Developer building <span className="text-accent">products</span>, not just websites.
+            Building products that matter
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground font-medium mb-10 max-w-2xl leading-relaxed">
-            I&apos;m O&apos;Neil. I engineer modern web applications, focusing on product growth, user experience, and scalable architecture.
+            Frontend engineer thinking like a founder. Full-stack thinking from UI to systems—obsessing over user retention, competitive fit, and how products actually grow.
           </p>
           
           <div className="flex flex-wrap items-center gap-4">
