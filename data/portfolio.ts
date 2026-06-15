@@ -1,36 +1,30 @@
 import { IconType } from "react-icons";
 import { 
-  SiReact, SiNextdotjs, SiJavascript, SiHtml5, SiCss, SiTypescript, 
-  SiTailwindcss, SiFigma, SiPostgresql, SiBootstrap, SiFirebase, 
-  SiSupabase, SiPrisma, SiGit, SiGithub, SiVercel 
+  SiReact, SiNextdotjs, SiJavascript, SiTypescript, 
+  SiTailwindcss, SiFigma, SiPostgresql, SiFirebase, 
+  SiSupabase, SiPrisma, SiGithub, SiVercel 
 } from "react-icons/si";
-import { FiDatabase } from "react-icons/fi";
 import { RiRobot2Line } from "react-icons/ri";
 
 export const skills = {
   frontend: [
-    { name: "React", icon: SiReact },
     { name: "Next.js", icon: SiNextdotjs },
-    { name: "JavaScript", icon: SiJavascript },
-    { name: "HTML", icon: SiHtml5 },
-    { name: "CSS", icon: SiCss },
+    { name: "React", icon: SiReact },
     { name: "TypeScript", icon: SiTypescript },
-    { name: "Tailwind", icon: SiTailwindcss },
+    { name: "JavaScript", icon: SiJavascript },
+    { name: "Tailwind CSS", icon: SiTailwindcss },
     { name: "Figma", icon: SiFigma },
-    { name: "SQL", icon: SiPostgresql },
-    { name: "Bootstrap", icon: SiBootstrap },
   ],
   baas: [
-    { name: "Firebase", icon: SiFirebase },
     { name: "Supabase", icon: SiSupabase },
-    { name: "Neon", icon: FiDatabase },
+    { name: "Firebase", icon: SiFirebase },
+    { name: "PostgreSQL", icon: SiPostgresql },
   ],
   tools: [
     { name: "Prisma", icon: SiPrisma },
-    { name: "Git", icon: SiGit },
-    { name: "GitHub", icon: SiGithub },
+    { name: "Git & GitHub", icon: SiGithub },
     { name: "Vercel", icon: SiVercel },
-    { name: "AI", icon: RiRobot2Line },
+    { name: "AI Agents & LLMs", icon: RiRobot2Line },
   ],
 };
 
