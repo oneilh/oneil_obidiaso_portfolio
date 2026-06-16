@@ -16,6 +16,7 @@ import { ExperienceTabs } from "@/components/ExperienceTabs";
 import { getFeaturedProjects } from "@/lib/github";
 import { projectsMeta } from "@/data/projects-meta";
 import { ProjectCard } from "@/components/ProjectCard";
+import { EmailDropdown } from "@/components/EmailDropdown";
 
 export default async function Home() {
   return (
@@ -111,15 +112,13 @@ export default async function Home() {
                   <FiLinkedin className="w-5 h-5" aria-hidden="true" />
                 </Button>
               </a>
-              <a href={`mailto:${contact.email}`} aria-label="Send Email">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="w-10 h-10 p-0 rounded-full"
-                >
-                  <FiMail className="w-5 h-5" aria-hidden="true" />
-                </Button>
-              </a>
+              <EmailDropdown
+                email={contact.email}
+                variant="ghost"
+                size="sm"
+                className="w-10 h-10 p-0 rounded-full"
+                showText={false}
+              />
             </div>
           </div>
         </section>
@@ -339,11 +338,13 @@ export default async function Home() {
             someone with a wild idea, I would love to connect.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href={`mailto:${contact.email}`}>
-              <Button size="lg" className="gap-2">
-                <FiMail aria-hidden="true" /> Say Hello
-              </Button>
-            </a>
+            <EmailDropdown
+              email={contact.email}
+              variant="primary"
+              size="lg"
+              className="gap-2"
+              showText={true}
+            />
             <a href={contact.resume} target="_blank" rel="noreferrer">
               <Button variant="outline" size="lg" className="gap-2">
                 <FiDownload aria-hidden="true" /> View Resume
