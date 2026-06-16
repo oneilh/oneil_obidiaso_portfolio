@@ -67,10 +67,19 @@ export const timeline = [
   },
 ];
 
-export const contact = {
-  email: "your.email@example.com",
-  linkedin: "https://linkedin.com/in/yourprofile",
-  github: "https://github.com/yourusername",
+export interface Profile {
+  name: string;
+  email: string;
+  linkedin: string;
+  github: string;
+  resume: string;
+}
+
+export const profile: Profile = {
+  name: "O'Neil Obidiaso",
+  email: "oneilhville@gmail.com",
+  linkedin: "https://www.linkedin.com/in/o-neil-obidiaso-1172b5293", 
+  github: "https://github.com/oneilh",
   resume: "/resume.pdf"
 };
 

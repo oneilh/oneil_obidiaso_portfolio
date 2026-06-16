@@ -12,12 +12,13 @@ import {
   FiDownload,
   FiBarChart2,
 } from "react-icons/fi";
-import { contact, startups, skills, academicProjects } from "@/data/portfolio";
+import { profile, startups, skills, academicProjects } from "@/data/portfolio";
 import { ExperienceTabs } from "@/components/ExperienceTabs";
 import { getFeaturedProjects } from "@/lib/github";
 import { projectsMeta } from "@/data/projects-meta";
 import { ProjectCard } from "@/components/ProjectCard";
 import { EmailDropdown } from "@/components/EmailDropdown";
+import { OtherProjectsModal } from "@/components/OtherProjectsModal";
 
 export default async function Home() {
   return (
@@ -86,7 +87,7 @@ export default async function Home() {
             </a>
             <div className="flex items-center gap-2 ml-4">
               <a
-                href={contact.github}
+                href={profile.github}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub Profile"
@@ -100,7 +101,7 @@ export default async function Home() {
                 </Button>
               </a>
               <a
-                href={contact.linkedin}
+                href={profile.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn Profile"
@@ -114,7 +115,7 @@ export default async function Home() {
                 </Button>
               </a>
               <EmailDropdown
-                email={contact.email}
+                email={profile.email}
                 variant="ghost"
                 size="sm"
                 className="w-10 h-10 p-0 rounded-full"
@@ -140,14 +141,16 @@ export default async function Home() {
         </section>
 
         {/* Featured Projects Section */}
-        <section id="projects">
+        <section id="projects" className="w-full">
           <SectionHeading>Featured Projects</SectionHeading>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projectsMeta.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+            {projectsMeta.map((project, idx) => (
+              <ProjectCard key={`${project.id}-${idx}`} project={project} />
             ))}
           </div>
         </section>
+
+        <OtherProjectsModal />
 
         {/* Startup Corner Section */}
         <section id="startup-corner" className="max-w-4xl">
@@ -180,22 +183,36 @@ export default async function Home() {
           <SectionHeading>Academic Projects</SectionHeading>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {academicProjects.map((project, idx) => (
-              <Card key={idx} className="relative overflow-hidden group p-8 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-background/40 backdrop-blur-md flex flex-col">
+              <Card
+                key={idx}
+                className="relative overflow-hidden group p-8 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-background/40 backdrop-blur-md flex flex-col"
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <FiBarChart2 className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/[0.03] group-hover:text-accent/[0.08] transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
-                
+                <FiBarChart2
+                  className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/[0.03] group-hover:text-accent/[0.08] transition-colors duration-500 transform -rotate-12 pointer-events-none"
+                  aria-hidden="true"
+                />
+
                 <div className="relative z-10 flex-grow flex flex-col">
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <h3 className="text-2xl font-bold group-hover:text-accent transition-colors">
                       {project.title}
                     </h3>
                     {project.link && project.link !== "#" && (
-                      <a href={project.link} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 text-accent border-2 border-accent/40 group-hover:scale-110 group-hover:bg-accent/20 transition-all duration-300">
-                        <FiExternalLink className="w-5 h-5" aria-hidden="true" />
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 text-accent border-2 border-accent/40 group-hover:scale-110 group-hover:bg-accent/20 transition-all duration-300"
+                      >
+                        <FiExternalLink
+                          className="w-5 h-5"
+                          aria-hidden="true"
+                        />
                       </a>
                     )}
                   </div>
-                  
+
                   {project.grade && (
                     <div className="mb-4">
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-accent/10 text-accent border border-accent/20">
@@ -207,7 +224,7 @@ export default async function Home() {
                   <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
                     {project.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-border/50">
                     {project.tags.map((tag) => (
                       <span
@@ -228,7 +245,6 @@ export default async function Home() {
         <section id="skills">
           <SectionHeading>Technical Arsenal</SectionHeading>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
             {/* Frontend Card */}
             <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card/50 hover:bg-card transition-colors">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -337,7 +353,6 @@ export default async function Home() {
                 ))}
               </div>
             </Card>
-
           </div>
         </section>
 
@@ -357,13 +372,13 @@ export default async function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <EmailDropdown
-              email={contact.email}
+              email={profile.email}
               variant="primary"
               size="lg"
               className="gap-2"
               showText={true}
             />
-            <a href={contact.resume} target="_blank" rel="noreferrer">
+            <a href={profile.resume} target="_blank" rel="noreferrer">
               <Button variant="outline" size="lg" className="gap-2">
                 <FiDownload aria-hidden="true" /> View Resume
               </Button>
