@@ -73,3 +73,12 @@ export const contact = {
   github: "https://github.com/yourusername",
   resume: "/resume.pdf"
 };
+
+export const academicProjects = [
+  {
+    title: "Business Intelligence Dashboard",
+    description: "A comprehensive dashboard built for coursework, leveraging data mining and visualization techniques to present actionable business insights.",
+    tags: ["Tableau", "Orange", "Data Mining", "Dashboards"],
+    link: "#"
+  }
+];
