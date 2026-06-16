@@ -15,7 +15,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const variants = {
       primary: "bg-foreground text-background hover:bg-foreground/90 shadow-sm hover:shadow-md hover:shadow-foreground/10",
       secondary: "bg-muted text-foreground hover:bg-muted/80 shadow-sm hover:shadow-md hover:shadow-muted/20",
-      outline: "border-2 border-border/60 bg-transparent hover:bg-muted hover:border-border text-foreground",
+      outline: "border-2 border-border bg-transparent hover:bg-muted text-foreground",
       ghost: "bg-transparent hover:bg-muted text-foreground",
     };
 

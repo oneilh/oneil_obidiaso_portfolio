@@ -51,7 +51,7 @@ export function ProjectModal({ project, isOpen, onOpenChange }: ProjectModalProp
     }}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 transition-opacity" />
-        <Dialog.Content className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-4xl translate-x-[-50%] translate-y-[-50%] gap-4 border border-border bg-background p-6 shadow-lg sm:rounded-lg md:w-full h-[90vh] md:h-[85vh] overflow-hidden flex flex-col">
+        <Dialog.Content className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-4xl translate-x-[-50%] translate-y-[-50%] gap-4 border-2 border-border bg-background p-6 shadow-lg sm:rounded-lg md:w-full h-[90vh] md:h-[85vh] overflow-hidden flex flex-col">
           
           <div className="flex justify-between items-start mb-4 shrink-0">
             <div>
@@ -78,7 +78,7 @@ export function ProjectModal({ project, isOpen, onOpenChange }: ProjectModalProp
                 <div className="h-64 bg-muted rounded w-full mt-6"></div>
               </div>
             ) : error ? (
-              <div className="text-destructive p-4 border border-destructive/50 rounded-lg bg-destructive/10">
+              <div className="text-destructive p-4 border-2 border-destructive rounded-lg bg-destructive/10">
                 {error}
               </div>
             ) : (

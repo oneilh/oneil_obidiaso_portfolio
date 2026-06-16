@@ -22,8 +22,8 @@ export default async function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Header */}
       <header className="fixed top-4 md:top-6 z-50 w-full flex justify-center px-4 pointer-events-none">
-        <div className="pointer-events-auto flex items-center justify-between px-6 py-3 rounded-none backdrop-blur-xl bg-background/70 border border-border/80 shadow-lg shadow-black/5 dark:shadow-white/5 transition-all hover:bg-background/80">
-          <div className="font-extrabold text-xl tracking-tight mr-6 md:pr-6 md:border-r border-border/50">
+        <div className="pointer-events-auto flex items-center justify-between px-6 py-3 rounded-none backdrop-blur-xl bg-background/70 border-2 border-border shadow-lg shadow-black/5 dark:shadow-white/5 transition-all hover:bg-background/80">
+          <div className="font-extrabold text-xl tracking-tight mr-6 md:pr-6 md:border-r-2 border-border">
             O&apos;Neil<span className="text-accent">.</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground mr-6">
@@ -58,7 +58,7 @@ export default async function Home() {
               Journey
             </a>
           </nav>
-          <div className="flex items-center md:pl-6 md:border-l border-border/50">
+          <div className="flex items-center md:pl-6 md:border-l-2 border-border">
             <ThemeToggle />
           </div>
         </div>
@@ -191,7 +191,6 @@ export default async function Home() {
               <div className="flex flex-wrap gap-2 mt-auto">
                 {[
                   "Tableau",
-                  "Power BI",
                   "Orange",
                   "Data Mining",
                   "Dashboards",
@@ -211,66 +210,116 @@ export default async function Home() {
         {/* Skills Section */}
         <section id="skills">
           <SectionHeading>Technical Arsenal</SectionHeading>
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4 text-foreground/80">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            {/* Frontend Card */}
+            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card/50 hover:bg-card transition-colors">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <h3 className="text-xl font-bold mb-6 text-foreground/90 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                 Frontend & Languages
               </h3>
               <div className="flex flex-wrap gap-3">
                 {skills.frontend.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center gap-2 px-4 py-2 bg-muted/50 rounded-lg border border-border/50 text-sm font-medium hover:bg-muted transition-colors"
+                    className="group relative flex items-center gap-2 px-4 py-2 bg-muted/50 hover:bg-background rounded-lg border-2 border-border hover:border-accent hover:-translate-y-1 hover:shadow-md hover:shadow-accent/10 transition-all duration-300 text-sm font-medium cursor-default"
                   >
                     <skill.icon
-                      className="w-4 h-4 text-accent"
+                      className={`w-4 h-4 text-accent transition-colors duration-300 ${skill.color}`}
                       aria-hidden="true"
                     />{" "}
-                    {skill.name}
+                    <span className="relative z-10">{skill.name}</span>
+                    {/* Tooltip */}
+                    <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs px-2.5 py-1 rounded shadow-xl whitespace-nowrap z-20 font-medium">
+                      {skill.context}
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-foreground" />
+                    </div>
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-bold mb-4 text-foreground/80">
-                  Backend as a Service
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {skills.baas.map((skill) => (
-                    <div
-                      key={skill.name}
-                      className="flex items-center gap-2 px-4 py-2 bg-muted/50 rounded-lg border border-border/50 text-sm font-medium hover:bg-muted transition-colors"
-                    >
-                      <skill.icon
-                        className="w-4 h-4 text-accent"
-                        aria-hidden="true"
-                      />{" "}
-                      {skill.name}
+            </Card>
+
+            {/* BaaS Card */}
+            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card/50 hover:bg-card transition-colors">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <h3 className="text-xl font-bold mb-6 text-foreground/90">
+                Backend as a Service
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {skills.baas.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="group relative flex items-center gap-2 px-4 py-2 bg-muted/50 hover:bg-background rounded-lg border-2 border-border hover:border-accent hover:-translate-y-1 hover:shadow-md hover:shadow-accent/10 transition-all duration-300 text-sm font-medium cursor-default"
+                  >
+                    <skill.icon
+                      className={`w-4 h-4 text-accent transition-colors duration-300 ${skill.color}`}
+                      aria-hidden="true"
+                    />{" "}
+                    <span className="relative z-10">{skill.name}</span>
+                    {/* Tooltip */}
+                    <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs px-2.5 py-1 rounded shadow-xl whitespace-nowrap z-20 font-medium">
+                      {skill.context}
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-foreground" />
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
-              <div>
-                <h3 className="text-xl font-bold mb-4 text-foreground/80">
-                  Tools & Core
-                </h3>
-                <div className="flex flex-wrap gap-3">
-                  {skills.tools.map((skill) => (
-                    <div
-                      key={skill.name}
-                      className="flex items-center gap-2 px-4 py-2 bg-muted/50 rounded-lg border border-border/50 text-sm font-medium hover:bg-muted transition-colors"
-                    >
-                      <skill.icon
-                        className="w-4 h-4 text-accent"
-                        aria-hidden="true"
-                      />{" "}
-                      {skill.name}
+            </Card>
+
+            {/* Tools Card */}
+            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card/50 hover:bg-card transition-colors">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <h3 className="text-xl font-bold mb-6 text-foreground/90">
+                Tools & Core
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {skills.tools.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="group relative flex items-center gap-2 px-4 py-2 bg-muted/50 hover:bg-background rounded-lg border-2 border-border hover:border-accent hover:-translate-y-1 hover:shadow-md hover:shadow-accent/10 transition-all duration-300 text-sm font-medium cursor-default"
+                  >
+                    <skill.icon
+                      className={`w-4 h-4 text-accent transition-colors duration-300 ${skill.color}`}
+                      aria-hidden="true"
+                    />{" "}
+                    <span className="relative z-10">{skill.name}</span>
+                    {/* Tooltip */}
+                    <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs px-2.5 py-1 rounded shadow-xl whitespace-nowrap z-20 font-medium">
+                      {skill.context}
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-foreground" />
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
-            </div>
+            </Card>
+
+            {/* Data & Analytics Card */}
+            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card/50 hover:bg-card transition-colors">
+              <div className="absolute inset-0 bg-gradient-to-bl from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <h3 className="text-xl font-bold mb-6 text-foreground/90">
+                Data & Analytics
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {skills.data.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="group relative flex items-center gap-2 px-4 py-2 bg-muted/50 hover:bg-background rounded-lg border-2 border-border hover:border-accent hover:-translate-y-1 hover:shadow-md hover:shadow-accent/10 transition-all duration-300 text-sm font-medium cursor-default"
+                  >
+                    <skill.icon
+                      className={`w-4 h-4 text-accent transition-colors duration-300 ${skill.color}`}
+                      aria-hidden="true"
+                    />{" "}
+                    <span className="relative z-10">{skill.name}</span>
+                    {/* Tooltip */}
+                    <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs px-2.5 py-1 rounded shadow-xl whitespace-nowrap z-20 font-medium">
+                      {skill.context}
+                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-foreground" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Card>
 
           </div>
         </section>

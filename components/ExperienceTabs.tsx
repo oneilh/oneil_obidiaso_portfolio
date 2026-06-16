@@ -9,7 +9,7 @@ export function ExperienceTabs() {
   const [activeTab, setActiveTab] = useState<'journey' | 'education'>('journey');
 
   return (
-    <section id="experience" className="mt-16 pt-10 border-t border-border/50">
+    <section id="experience" className="mt-16 pt-10 border-t-2 border-border">
       <div className="flex items-center gap-6 mb-8">
         <button
           onClick={() => setActiveTab('journey')}
@@ -33,13 +33,13 @@ export function ExperienceTabs() {
 
       <div className="min-h-[400px]">
         {activeTab === 'journey' && (
-          <div className="space-y-8 border-l-2 border-muted/50 pl-8 ml-3 relative animate-in fade-in duration-500 max-w-4xl">
+          <div className="space-y-8 border-l-2 border-border pl-8 ml-3 relative animate-in fade-in duration-500 max-w-4xl">
             {timeline.map((item, idx) => (
               <div key={idx} className="relative group">
                 {/* Timeline dot with hover glow */}
-                <span className="absolute -left-[41px] top-6 h-5 w-5 rounded-full bg-background border-4 border-accent/50 group-hover:border-accent group-hover:shadow-[0_0_12px_rgba(var(--accent),0.5)] transition-all duration-300" />
+                <span className="absolute -left-[41px] top-6 h-5 w-5 rounded-full bg-background border-4 border-accent group-hover:shadow-[0_0_12px_rgba(var(--accent),0.5)] transition-all duration-300" />
                 
-                <Card className="p-6 relative overflow-hidden border-border/40 hover:border-accent/60 transition-all duration-500 hover:shadow-xl hover:shadow-accent/5 bg-background/40 backdrop-blur-md">
+                <Card className="p-6 relative overflow-hidden border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-xl hover:shadow-accent/5 bg-background/40 backdrop-blur-md">
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10">
@@ -47,7 +47,7 @@ export function ExperienceTabs() {
                       <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">
                         {item.title}
                       </h3>
-                      <span className="inline-block py-1 px-3 text-xs font-bold bg-accent/10 text-accent border border-accent/20 rounded-full w-fit">
+                      <span className="inline-block py-1 px-3 text-xs font-bold bg-accent/10 text-accent border-2 border-accent/40 rounded-full w-fit">
                         {item.date}
                       </span>
                     </div>
@@ -68,7 +68,7 @@ export function ExperienceTabs() {
 
         {activeTab === 'education' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in duration-500">
-            <Card className="relative overflow-hidden group p-8 border-border/40 hover:border-accent/60 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-background/40 backdrop-blur-md flex flex-col">
+            <Card className="relative overflow-hidden group p-8 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-background/40 backdrop-blur-md flex flex-col">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <FiBookOpen className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/[0.03] group-hover:text-accent/[0.08] transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
               
@@ -82,7 +82,7 @@ export function ExperienceTabs() {
                       BSc IT & Business Information Systems
                     </p>
                   </div>
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 text-accent border border-accent/20 group-hover:scale-110 group-hover:bg-accent/20 group-hover:shadow-[0_0_15px_rgba(var(--accent),0.2)] transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 text-accent border-2 border-accent/40 group-hover:scale-110 group-hover:bg-accent/20 group-hover:shadow-[0_0_15px_rgba(var(--accent),0.2)] transition-all duration-300">
                     <FiBookOpen className="w-6 h-6" aria-hidden="true" />
                   </div>
                 </div>
@@ -123,7 +123,7 @@ export function ExperienceTabs() {
               </div>
             </Card>
 
-            <Card className="relative overflow-hidden group p-8 border-border/40 hover:border-accent/60 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-background/40 backdrop-blur-md flex flex-col">
+            <Card className="relative overflow-hidden group p-8 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-background/40 backdrop-blur-md flex flex-col">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <FiAward className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/[0.03] group-hover:text-accent/[0.08] transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
               
@@ -137,7 +137,7 @@ export function ExperienceTabs() {
                       Advanced Diploma in Software Engineering
                     </p>
                   </div>
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 text-accent border border-accent/20 group-hover:scale-110 group-hover:bg-accent/20 group-hover:shadow-[0_0_15px_rgba(var(--accent),0.2)] transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 text-accent border-2 border-accent/40 group-hover:scale-110 group-hover:bg-accent/20 group-hover:shadow-[0_0_15px_rgba(var(--accent),0.2)] transition-all duration-300">
                     <FiAward className="w-6 h-6" aria-hidden="true" />
                   </div>
                 </div>

@@ -2,29 +2,35 @@ import { IconType } from "react-icons";
 import { 
   SiReact, SiNextdotjs, SiJavascript, SiTypescript, 
   SiTailwindcss, SiFigma, SiPostgresql, SiFirebase, 
-  SiSupabase, SiPrisma, SiGithub, SiVercel 
+  SiSupabase, SiPrisma, SiGithub, SiVercel
 } from "react-icons/si";
 import { RiRobot2Line } from "react-icons/ri";
+import { FiPieChart, FiBarChart2, FiActivity, FiDatabase } from "react-icons/fi";
 
 export const skills = {
   frontend: [
-    { name: "Next.js", icon: SiNextdotjs },
-    { name: "React", icon: SiReact },
-    { name: "TypeScript", icon: SiTypescript },
-    { name: "JavaScript", icon: SiJavascript },
-    { name: "Tailwind CSS", icon: SiTailwindcss },
-    { name: "Figma", icon: SiFigma },
+    { name: "Next.js", icon: SiNextdotjs, color: "group-hover:text-black dark:group-hover:text-white", context: "Built Firn0 & Outsy" },
+    { name: "React", icon: SiReact, color: "group-hover:text-[#61DAFB]", context: "Core component architecture" },
+    { name: "TypeScript", icon: SiTypescript, color: "group-hover:text-[#3178C6]", context: "Type-safe applications" },
+    { name: "JavaScript", icon: SiJavascript, color: "group-hover:text-[#F7DF1E]", context: "Dynamic interactions" },
+    { name: "Tailwind CSS", icon: SiTailwindcss, color: "group-hover:text-[#06B6D4]", context: "Rapid, responsive UI" },
+    { name: "Figma", icon: SiFigma, color: "group-hover:text-[#F24E1E]", context: "Prototyping & UX design" },
   ],
   baas: [
-    { name: "Supabase", icon: SiSupabase },
-    { name: "Firebase", icon: SiFirebase },
-    { name: "PostgreSQL", icon: SiPostgresql },
+    { name: "Supabase", icon: SiSupabase, color: "group-hover:text-[#3ECF8E]", context: "Open source BaaS" },
+    { name: "Firebase", icon: SiFirebase, color: "group-hover:text-[#FFCA28]", context: "Real-time databases & Auth" },
+    { name: "PostgreSQL", icon: SiPostgresql, color: "group-hover:text-[#4169E1]", context: "Relational data modeling" },
   ],
   tools: [
-    { name: "Prisma", icon: SiPrisma },
-    { name: "Git & GitHub", icon: SiGithub },
-    { name: "Vercel", icon: SiVercel },
-    { name: "AI Agents & LLMs", icon: RiRobot2Line },
+    { name: "Prisma", icon: SiPrisma, color: "group-hover:text-black dark:group-hover:text-white", context: "Type-safe database ORM" },
+    { name: "Git & GitHub", icon: SiGithub, color: "group-hover:text-[#181717] dark:group-hover:text-white", context: "Version control & CI/CD" },
+    { name: "Vercel", icon: SiVercel, color: "group-hover:text-black dark:group-hover:text-white", context: "Seamless deployments" },
+    { name: "AI Agents & LLMs", icon: RiRobot2Line, color: "group-hover:text-[#8B5CF6]", context: "Automated workflows & tools" },
+  ],
+  data: [
+    { name: "Tableau", icon: FiActivity, color: "group-hover:text-[#E97627]", context: "Data visualization" },
+    { name: "Orange", icon: FiPieChart, color: "group-hover:text-[#F39C12]", context: "Visual data mining" },
+    { name: "Data Mining", icon: FiDatabase, color: "group-hover:text-[#3498DB]", context: "Actionable business insights" },
   ],
 };
 

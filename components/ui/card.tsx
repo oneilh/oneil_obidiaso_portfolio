@@ -14,7 +14,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         whileHover={{ y: -4, scale: 1.01 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
-        className={`rounded-2xl border border-border/80 bg-background/70 backdrop-blur-md shadow-sm hover:shadow-xl hover:border-accent/40 transition-all duration-300 ${className}`}
+        className={`rounded-2xl border-2 border-border bg-background/70 backdrop-blur-md shadow-sm hover:shadow-xl hover:border-accent transition-all duration-300 ${className}`}
         {...props}
       >
         {children}

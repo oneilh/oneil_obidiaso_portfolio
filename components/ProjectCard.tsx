@@ -19,7 +19,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <>
       <Card className="flex flex-col h-full overflow-hidden group">
         {/* Image Preview Area */}
-        <div className="relative w-full h-48 md:h-56 bg-muted border-b border-border overflow-hidden">
+        <div className="relative w-full h-48 md:h-56 bg-muted border-b-2 border-border overflow-hidden">
           {/* We use unoptimized for placeholder images, change in production if needed */}
           <Image 
             src={project.image} 
@@ -31,7 +31,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div className="absolute inset-0 bg-background/20 backdrop-blur-[4px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
             <Button 
               variant="secondary" 
-              className="rounded-full px-6 py-5 gap-2 font-semibold shadow-xl scale-90 group-hover:scale-100 transition-all duration-300 bg-background/90 hover:bg-background border border-border/50 text-foreground"
+              className="rounded-full px-6 py-5 gap-2 font-semibold shadow-xl scale-90 group-hover:scale-100 transition-all duration-300 bg-background/90 hover:bg-background border-2 border-border text-foreground"
               onClick={() => setIsModalOpen(true)}
             >
               <FiInfo className="w-4 h-4" /> Deep Dive
@@ -53,14 +53,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
           <div className="flex flex-wrap gap-2 mb-6">
             {project.tags.map(tag => (
-              <span key={tag} className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20">
+              <span key={tag} className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-accent/10 text-accent border-2 border-accent/40">
                 {tag}
               </span>
             ))}
           </div>
 
           {/* Card Footer Links */}
-          <div className="flex items-center gap-3 mt-auto pt-4 border-t border-border">
+          <div className="flex items-center gap-3 mt-auto pt-4 border-t-2 border-border">
             <a href={project.githubUrl} target="_blank" rel="noreferrer" className="flex-1">
               <Button variant="outline" size="sm" className="w-full gap-2">
                 <FiGithub aria-hidden="true" /> Source
