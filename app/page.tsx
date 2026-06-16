@@ -10,10 +10,9 @@ import {
   FiStar,
   FiExternalLink,
   FiDownload,
-  FiAward,
-  FiBookOpen,
 } from "react-icons/fi";
-import { contact, startups, skills, timeline } from "@/data/portfolio";
+import { contact, startups, skills } from "@/data/portfolio";
+import { ExperienceTabs } from "@/components/ExperienceTabs";
 import { getFeaturedProjects } from "@/lib/github";
 import { projectsMeta } from "@/data/projects-meta";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -273,147 +272,10 @@ export default async function Home() {
               </div>
             </div>
 
-            {/* Education Sub-section */}
-            <div className="mt-16 pt-10 border-t border-border/50">
-              <div className="flex items-center gap-3 mb-8">
-                <FiAward className="w-6 h-6 text-accent" aria-hidden="true" />
-                <h3 className="text-2xl font-bold text-foreground">
-                  Education & Certifications
-                </h3>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Card className="relative overflow-hidden group p-8 border-border/40 hover:border-accent/60 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-background/40 backdrop-blur-md flex flex-col">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <FiBookOpen className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/[0.03] group-hover:text-accent/[0.08] transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
-                  
-                  <div className="relative z-10 flex-grow flex flex-col">
-                    <div className="flex items-start justify-between gap-4 mb-6">
-                      <div>
-                        <h4 className="text-2xl font-extrabold text-foreground tracking-tight group-hover:text-accent transition-colors">
-                          Middlesex University, London
-                        </h4>
-                        <p className="text-accent/90 font-medium mt-2 text-base">
-                          BSc IT & Business Information Systems
-                        </p>
-                      </div>
-                      <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 text-accent border border-accent/20 group-hover:scale-110 group-hover:bg-accent/20 group-hover:shadow-[0_0_15px_rgba(var(--accent),0.2)] transition-all duration-300">
-                        <FiBookOpen className="w-6 h-6" aria-hidden="true" />
-                      </div>
-                    </div>
-                    
-                    <div className="h-px w-full bg-gradient-to-r from-border/50 to-transparent mb-6" />
-                    
-                    <div className="flex-grow">
-                      <h5 className="text-xs font-bold mb-4 text-foreground/50 uppercase tracking-[0.2em]">
-                        Relevant Modules
-                      </h5>
-                      <ul className="space-y-3 text-sm text-muted-foreground/90">
-                        <li className="flex items-start gap-3 group/item">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-1.5 shrink-0 group-hover/item:bg-accent transition-colors" />{" "}
-                          <span className="leading-relaxed group-hover/item:text-foreground transition-colors">
-                            Business Intelligence
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 group/item">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-1.5 shrink-0 group-hover/item:bg-accent transition-colors" />{" "}
-                          <span className="leading-relaxed group-hover/item:text-foreground transition-colors">
-                            Strategic Information Systems
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 group/item">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-1.5 shrink-0 group-hover/item:bg-accent transition-colors" />{" "}
-                          <span className="leading-relaxed group-hover/item:text-foreground transition-colors">
-                            IT Solutions & Deployment
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 group/item">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-1.5 shrink-0 group-hover/item:bg-accent transition-colors" />{" "}
-                          <span className="leading-relaxed group-hover/item:text-foreground transition-colors">
-                            Technology Innovation & Entrepreneurship
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="relative overflow-hidden group p-8 border-border/40 hover:border-accent/60 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-background/40 backdrop-blur-md flex flex-col">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <FiAward className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/[0.03] group-hover:text-accent/[0.08] transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
-                  
-                  <div className="relative z-10 flex-grow flex flex-col">
-                    <div className="flex items-start justify-between gap-4 mb-6">
-                      <div>
-                        <h4 className="text-2xl font-extrabold text-foreground tracking-tight group-hover:text-accent transition-colors">
-                          Aptech Computer Education, Lagos
-                        </h4>
-                        <p className="text-accent/90 font-medium mt-2 text-base">
-                          Advanced Diploma in Software Engineering
-                        </p>
-                      </div>
-                      <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 text-accent border border-accent/20 group-hover:scale-110 group-hover:bg-accent/20 group-hover:shadow-[0_0_15px_rgba(var(--accent),0.2)] transition-all duration-300">
-                        <FiAward className="w-6 h-6" aria-hidden="true" />
-                      </div>
-                    </div>
-                    
-                    <div className="h-px w-full bg-gradient-to-r from-border/50 to-transparent mb-6" />
-                    
-                    <div className="flex-grow">
-                      <h5 className="text-xs font-bold mb-4 text-foreground/50 uppercase tracking-[0.2em]">
-                        Key Focus Areas
-                      </h5>
-                      <ul className="space-y-3 text-sm text-muted-foreground/90">
-                        <li className="flex items-start gap-3 group/item">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-1.5 shrink-0 group-hover/item:bg-accent transition-colors" />{" "}
-                          <span className="leading-relaxed group-hover/item:text-foreground transition-colors">
-                            Web & Mobile App Development
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 group/item">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-1.5 shrink-0 group-hover/item:bg-accent transition-colors" />{" "}
-                          <span className="leading-relaxed group-hover/item:text-foreground transition-colors">
-                            Object-Oriented Programming
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 group/item">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-1.5 shrink-0 group-hover/item:bg-accent transition-colors" />{" "}
-                          <span className="leading-relaxed group-hover/item:text-foreground transition-colors">
-                            Database Management Systems
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-3 group/item">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent/40 mt-1.5 shrink-0 group-hover/item:bg-accent transition-colors" />{" "}
-                          <span className="leading-relaxed group-hover/item:text-foreground transition-colors">
-                            Systems Analysis & Design
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-            </div>
           </div>
         </section>
 
-        {/* Journey Timeline */}
-        <section id="journey" className="max-w-3xl">
-          <SectionHeading>My Journey</SectionHeading>
-          <div className="space-y-8 border-l-2 border-muted pl-6 ml-3 relative">
-            {timeline.map((item, idx) => (
-              <div key={idx} className="relative">
-                <span className="absolute -left-[35px] top-1 h-5 w-5 rounded-full bg-background border-4 border-accent" />
-                <h3 className="text-2xl font-bold">{item.title}</h3>
-                <span className="inline-block py-1 px-2 mt-1 mb-2 text-xs font-semibold bg-muted text-muted-foreground rounded-md">
-                  {item.role} • {item.date}
-                </span>
-                <p className="text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <ExperienceTabs />
 
         {/* Contact Section */}
         <section
