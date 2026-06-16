@@ -48,22 +48,16 @@ export const startups = [
 
 export const timeline = [
   {
-    title: "Aptech",
-    role: "Student/Trainee",
-    date: "Past",
-    description: "Foundational software engineering and IT studies.",
-  },
-  {
     title: "Cybite Academy",
-    role: "Tutor",
-    date: "Past",
-    description: "Taught UI/UX and Frontend Development to upcoming designers and developers.",
+    role: "UI/UX & Frontend Tutor",
+    date: "2023 — Aug 2025",
+    description: "Taught UI/UX design principles and frontend development to upcoming designers and developers, mentoring them through hands-on projects.",
   },
   {
-    title: "Middlesex",
-    role: "Student",
-    date: "Current",
-    description: "Advancing knowledge and building larger scale products.",
+    title: "Freelance Software Engineer",
+    role: "Independent",
+    date: "2024",
+    description: "Designed and developed custom web applications and landing pages for various clients, focusing on clean UX and scalable frontend architecture.",
   },
 ];
 

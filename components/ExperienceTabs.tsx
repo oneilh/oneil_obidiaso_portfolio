@@ -33,17 +33,34 @@ export function ExperienceTabs() {
 
       <div className="min-h-[400px]">
         {activeTab === 'journey' && (
-          <div className="space-y-8 border-l-2 border-muted pl-6 ml-3 relative animate-in fade-in duration-500 max-w-3xl">
+          <div className="space-y-8 border-l-2 border-muted/50 pl-8 ml-3 relative animate-in fade-in duration-500 max-w-4xl">
             {timeline.map((item, idx) => (
-              <div key={idx} className="relative">
-                <span className="absolute -left-[35px] top-1 h-5 w-5 rounded-full bg-background border-4 border-accent" />
-                <h3 className="text-2xl font-bold">{item.title}</h3>
-                <span className="inline-block py-1 px-2 mt-1 mb-2 text-xs font-semibold bg-muted text-muted-foreground rounded-md">
-                  {item.role} • {item.date}
-                </span>
-                <p className="text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
+              <div key={idx} className="relative group">
+                {/* Timeline dot with hover glow */}
+                <span className="absolute -left-[41px] top-6 h-5 w-5 rounded-full bg-background border-4 border-accent/50 group-hover:border-accent group-hover:shadow-[0_0_12px_rgba(var(--accent),0.5)] transition-all duration-300" />
+                
+                <Card className="p-6 relative overflow-hidden border-border/40 hover:border-accent/60 transition-all duration-500 hover:shadow-xl hover:shadow-accent/5 bg-background/40 backdrop-blur-md">
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative z-10">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                      <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">
+                        {item.title}
+                      </h3>
+                      <span className="inline-block py-1 px-3 text-xs font-bold bg-accent/10 text-accent border border-accent/20 rounded-full w-fit">
+                        {item.date}
+                      </span>
+                    </div>
+                    
+                    <h4 className="text-base font-semibold text-foreground/80 mb-4">
+                      {item.role}
+                    </h4>
+                    
+                    <p className="text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </Card>
               </div>
             ))}
           </div>
