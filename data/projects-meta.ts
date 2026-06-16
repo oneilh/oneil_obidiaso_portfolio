@@ -43,17 +43,6 @@ export const projectsMeta: ProjectMeta[] = [
     tags: ["Next.js", "React", "Tailwind CSS"],
     repoName: "oneil-obidiaso/oneil_obidiaso_portfolio",
   },
-  {
-    id: "portfolio",
-    name: "Developer Portfolio",
-    description:
-      "My personal developer portfolio built with Next.js and Tailwind CSS.",
-    image: "/api/placeholder/800/400",
-    githubUrl: "https://github.com/oneil-obidiaso/oneil_obidiaso_portfolio",
-    liveUrl: "https://oneil-obidiaso.vercel.app",
-    tags: ["Next.js", "React", "Tailwind CSS"],
-    repoName: "oneil-obidiaso/oneil_obidiaso_portfolio",
-  },
   // Add more projects here
 ];
 
