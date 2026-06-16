@@ -70,10 +70,10 @@ export default async function Home() {
       <main className="flex-grow container mx-auto px-4 py-12 flex flex-col gap-32">
         {/* Hero Section */}
         <section className="pt-12 md:pt-24 flex flex-col items-start max-w-3xl">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.1] mb-6">
+          <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter leading-none mb-6">
             Building products that matter
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground font-medium mb-10 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground/80 font-medium mb-10 max-w-2xl leading-relaxed">
             Frontend engineer thinking like a founder. Full-stack thinking from
             UI to systems—obsessing over user retention, competitive fit, and
             how products actually grow.
@@ -143,7 +143,7 @@ export default async function Home() {
         {/* Featured Projects Section */}
         <section id="projects" className="w-full">
           <SectionHeading>Featured Projects</SectionHeading>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10">
             {projectsMeta.map((project, idx) => (
               <ProjectCard key={`${project.id}-${idx}`} project={project} />
             ))}
@@ -155,22 +155,22 @@ export default async function Home() {
         {/* Startup Corner Section */}
         <section id="startup-corner" className="max-w-4xl">
           <SectionHeading>Startup Corner</SectionHeading>
-          <p className="text-muted-foreground mb-8 text-lg">
+          <p className="text-muted-foreground mb-10 text-lg">
             A sneak peek into the products I&apos;m actively incubating and
             building.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {startups.map((startup, idx) => (
-              <Card key={idx} className="relative overflow-hidden group p-6">
+              <Card key={idx} className="relative overflow-hidden group p-8 !bg-muted/30 hover:!bg-muted/50 backdrop-blur-sm transition-colors">
                 <div className="absolute top-0 right-0 p-3">
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-accent/10 text-accent border border-accent/20">
                     {startup.status}
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3 mt-4 group-hover:text-accent transition-colors">
+                <h3 className="text-2xl font-bold mb-4 mt-2 group-hover:text-accent transition-colors">
                   {startup.name}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-loose">
                   {startup.description}
                 </p>
               </Card>
@@ -181,11 +181,11 @@ export default async function Home() {
         {/* Academic Projects Section */}
         <section id="academic-projects" className="max-w-4xl">
           <SectionHeading>Academic Projects</SectionHeading>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {academicProjects.map((project, idx) => (
               <Card
                 key={idx}
-                className="relative overflow-hidden group p-8 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-background/40 backdrop-blur-md flex flex-col"
+                className="relative overflow-hidden group p-10 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 !bg-muted/30 hover:!bg-muted/50 backdrop-blur-sm flex flex-col"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <FiBarChart2
@@ -221,7 +221,7 @@ export default async function Home() {
                     </div>
                   )}
 
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
+                  <p className="text-muted-foreground text-sm leading-loose mb-6 flex-grow">
                     {project.description}
                   </p>
 
@@ -246,7 +246,7 @@ export default async function Home() {
           <SectionHeading>Technical Arsenal</SectionHeading>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Frontend Card */}
-            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card/50 hover:bg-card transition-colors">
+            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-muted/30 hover:!bg-muted/50 backdrop-blur-sm transition-colors">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
@@ -274,7 +274,7 @@ export default async function Home() {
             </Card>
 
             {/* BaaS Card */}
-            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card/50 hover:bg-card transition-colors">
+            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-muted/30 hover:!bg-muted/50 backdrop-blur-sm transition-colors">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90">
                 Backend as a Service
@@ -301,7 +301,7 @@ export default async function Home() {
             </Card>
 
             {/* Tools Card */}
-            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card/50 hover:bg-card transition-colors">
+            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-muted/30 hover:!bg-muted/50 backdrop-blur-sm transition-colors">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90">
                 Tools & Core
@@ -328,7 +328,7 @@ export default async function Home() {
             </Card>
 
             {/* Data & Analytics Card */}
-            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card/50 hover:bg-card transition-colors">
+            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-muted/30 hover:!bg-muted/50 backdrop-blur-sm transition-colors">
               <div className="absolute inset-0 bg-gradient-to-bl from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90">
                 Data & Analytics
