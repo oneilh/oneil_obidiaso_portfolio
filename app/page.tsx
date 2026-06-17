@@ -161,7 +161,7 @@ export default async function Home() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {startups.map((startup, idx) => (
-              <Card key={idx} className="relative overflow-hidden group p-8 !bg-muted/30 hover:!bg-muted/50 backdrop-blur-sm transition-colors">
+              <Card key={idx} className="relative overflow-hidden group p-8 !bg-card hover:!bg-card-hover backdrop-blur-sm transition-colors">
                 <div className="absolute top-0 right-0 p-3">
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-accent/10 text-accent border border-accent/20">
                     {startup.status}
@@ -185,7 +185,7 @@ export default async function Home() {
             {academicProjects.map((project, idx) => (
               <Card
                 key={idx}
-                className="relative overflow-hidden group p-10 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 !bg-muted/30 hover:!bg-muted/50 backdrop-blur-sm flex flex-col"
+                className="relative overflow-hidden group p-10 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 !bg-card hover:!bg-card-hover backdrop-blur-sm flex flex-col"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <FiBarChart2
@@ -246,7 +246,7 @@ export default async function Home() {
           <SectionHeading>Technical Arsenal</SectionHeading>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Frontend Card */}
-            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-muted/30 hover:!bg-muted/50 backdrop-blur-sm transition-colors">
+            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-card hover:!bg-card-hover backdrop-blur-sm transition-colors">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
@@ -274,7 +274,7 @@ export default async function Home() {
             </Card>
 
             {/* BaaS Card */}
-            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-muted/30 hover:!bg-muted/50 backdrop-blur-sm transition-colors">
+            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-card hover:!bg-card-hover backdrop-blur-sm transition-colors">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90">
                 Backend as a Service
@@ -301,7 +301,7 @@ export default async function Home() {
             </Card>
 
             {/* Tools Card */}
-            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-muted/30 hover:!bg-muted/50 backdrop-blur-sm transition-colors">
+            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-card hover:!bg-card-hover backdrop-blur-sm transition-colors">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90">
                 Tools & Core
@@ -328,7 +328,7 @@ export default async function Home() {
             </Card>
 
             {/* Data & Analytics Card */}
-            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-muted/30 hover:!bg-muted/50 backdrop-blur-sm transition-colors">
+            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-card hover:!bg-card-hover backdrop-blur-sm transition-colors">
               <div className="absolute inset-0 bg-gradient-to-bl from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90">
                 Data & Analytics
