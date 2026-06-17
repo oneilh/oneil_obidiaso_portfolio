@@ -9,62 +9,58 @@ export interface GitHubRepo {
   topics?: string[];
 }
 
-export async function getFeaturedProjects(username: string): Promise<GitHubRepo[]> {
-  const token = process.env.GITHUB_TOKEN;
-  
-  const headers: HeadersInit = {
-    "Accept": "application/vnd.github.v3+json",
-  };
+import { featuredProjects, ProjectMeta } from "../data/projects-meta";
 
-  if (token) {
-    headers["Authorization"] = `token ${token}`;
-  }
-
+export async function getFeaturedProjects(username: string): Promise<ProjectMeta[]> {
   try {
-    // For this example we fetch repos for the user and sort by updated
-    // Alternatively, you can use search API for specific topics: 
-    // `https://api.github.com/search/repositories?q=user:${username}+topic:portfolio`
-    const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`, {
-      headers,
-      next: { revalidate: 3600 } // Cache for 1 hour
-    });
+    const projects = [];
 
-    if (!res.ok) {
-      throw new Error(`Failed to fetch GitHub repos: ${res.statusText}`);
+    for (const item of featuredProjects) {
+      const repoName = item.repo;
+
+      // Fetch the project-meta.json file from the repo itself
+      const projectMeta = await getProjectMetaFromRepo(username, repoName);
+
+      // Combine defaults, the remote JSON data, and local overrides gracefully
+      projects.push({
+        id: repoName,
+        name: repoName.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+        description: "No description provided.",
+        tags: [],
+        image: "/placeholder.png",
+        githubUrl: `https://github.com/${username}/${repoName}`,
+        repoName: `${username}/${repoName}`,
+        ...projectMeta,
+        ...item,
+      });
     }
 
-    const repos: GitHubRepo[] = await res.json();
-    
-    // Filter out forks and return top 4
-    const featured = repos.filter((repo) => !repo.fork).slice(0, 4);
-    
-    if (featured.length === 0) {
-      throw new Error("No public repos found");
+    if (projects.length === 0) {
+      throw new Error("No public featured repos found");
     }
-    
-    return featured;
-      
+
+    return projects;
   } catch (error) {
-    console.error("Error fetching GitHub projects:", error);
+    console.error("Error fetching featured projects:", error);
     // Fallback data for demonstration
     return [
       {
-        id: 1,
+        id: "1",
         name: "portfolio-website",
         description: "My personal portfolio highlighting my work as a product builder.",
-        html_url: "#",
-        stargazers_count: 12,
-        language: "TypeScript",
-        homepage: null,
+        tags: ["TypeScript", "Next.js"],
+        image: "/placeholder.png",
+        githubUrl: "#",
+        repoName: "oneilh/portfolio-website",
       },
       {
-        id: 2,
+        id: "2",
         name: "nextjs-saas-template",
         description: "A full-stack template with authentication and billing.",
-        html_url: "#",
-        stargazers_count: 45,
-        language: "TypeScript",
-        homepage: null,
+        tags: ["TypeScript", "Next.js"],
+        image: "/placeholder.png",
+        githubUrl: "#",
+        repoName: "oneilh/nextjs-saas-template",
       }
     ];
   }
@@ -101,34 +97,31 @@ export async function getProjectByRepo(username: string, repo: string): Promise<
 
 export async function getProjectMetaFromRepo(username: string, repo: string): Promise<any | null> {
   try {
-    let res = await fetch(`https://raw.githubusercontent.com/${username}/${repo}/master/project-meta.ts`, {
-      cache: 'no-store'
+    let res = await fetch(`https://raw.githubusercontent.com/${username}/${repo}/master/project-meta.json`, {
+      next: { revalidate: 3600 }
     });
 
     if (!res.ok) {
-      res = await fetch(`https://raw.githubusercontent.com/${username}/${repo}/main/project-meta.ts`, {
-        cache: 'no-store'
+      res = await fetch(`https://raw.githubusercontent.com/${username}/${repo}/main/project-meta.json`, {
+        next: { revalidate: 3600 }
       });
     }
 
     if (!res.ok) {
-      console.warn(`Could not find project-meta.ts in ${username}/${repo}`);
+      console.warn(`Could not find project-meta.json in ${username}/${repo}`);
       return null;
     }
 
-    const text = await res.text();
-    const match = text.match(/export\s+const\s+\w+\s*=\s*(\{[\s\S]*\});?\s*$/);
-    if (!match) {
-      console.warn(`Could not parse project-meta.ts in ${username}/${repo}`);
+    try {
+      const projectMeta = await res.json();
+      return projectMeta;
+    } catch (parseError) {
+      console.warn(`Malformed JSON in project-meta.json for ${repo}:`, parseError);
       return null;
     }
-    
-    const objStr = match[1];
-    const projectMeta = new Function(`return ${objStr}`)();
-    return projectMeta;
 
   } catch (error) {
-    console.error(`Error fetching/parsing project-meta.ts for ${repo}:`, error);
+    console.error(`Error fetching project-meta.json for ${repo}:`, error);
     return null;
   }
 }

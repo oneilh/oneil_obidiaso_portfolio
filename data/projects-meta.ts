@@ -7,6 +7,12 @@ export interface ProjectMeta {
   githubUrl: string;
   liveUrl?: string;
   repoName: string;
+  details?: {
+    overview: string;
+    features: string[];
+    technicalHighlights: string[];
+    gallery: string[];
+  };
 }
 
 export const featuredProjects = [
