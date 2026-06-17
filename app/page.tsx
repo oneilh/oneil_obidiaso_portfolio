@@ -14,13 +14,34 @@ import {
 } from "react-icons/fi";
 import { profile, startups, skills, academicProjects } from "@/data/portfolio";
 import { ExperienceTabs } from "@/components/ExperienceTabs";
-import { getFeaturedProjects } from "@/lib/github";
-import { projectsMeta } from "@/data/projects-meta";
+import { getProjectMetaFromRepo } from "@/lib/github";
+import { featuredProjects, ProjectMeta } from "@/data/projects-meta";
 import { ProjectCard } from "@/components/ProjectCard";
 import { EmailDropdown } from "@/components/EmailDropdown";
 import { OtherProjectsModal } from "@/components/OtherProjectsModal";
 
 export default async function Home() {
+  const username = "oneilh";
+  
+  const fetchedProjects: ProjectMeta[] = (await Promise.all(
+    featuredProjects.map(async (p) => {
+      const repoData = await getProjectMetaFromRepo(username, p.repo);
+      if (!repoData) return null;
+      
+      return {
+        id: repoData.id || p.repo,
+        name: repoData.name || p.repo.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()),
+        description: repoData.description || "No description provided.",
+        tags: repoData.tags || [],
+        image: repoData.image || `/placeholder.png`,
+        githubUrl: repoData.githubUrl || `https://github.com/${username}/${p.repo}`,
+        liveUrl: repoData.liveUrl || undefined,
+        repoName: `${username}/${p.repo}`,
+        ...p,
+      } as ProjectMeta;
+    })
+  )).filter((p): p is ProjectMeta => p !== null);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
@@ -144,7 +165,7 @@ export default async function Home() {
         <section id="projects" className="w-full">
           <SectionHeading>Featured Projects</SectionHeading>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10">
-            {projectsMeta.map((project, idx) => (
+            {fetchedProjects.map((project, idx) => (
               <ProjectCard key={`${project.id}-${idx}`} project={project} />
             ))}
           </div>

@@ -6,6 +6,7 @@ export interface GitHubRepo {
   stargazers_count: number;
   language: string;
   homepage: string | null;
+  topics?: string[];
 }
 
 export async function getFeaturedProjects(username: string): Promise<GitHubRepo[]> {
@@ -66,5 +67,68 @@ export async function getFeaturedProjects(username: string): Promise<GitHubRepo[
         homepage: null,
       }
     ];
+  }
+}
+
+export async function getProjectByRepo(username: string, repo: string): Promise<GitHubRepo | null> {
+  const token = process.env.GITHUB_TOKEN;
+  
+  const headers: HeadersInit = {
+    "Accept": "application/vnd.github.v3+json",
+  };
+
+  if (token) {
+    headers["Authorization"] = `token ${token}`;
+  }
+
+  try {
+    const res = await fetch(`https://api.github.com/repos/${username}/${repo}`, {
+      headers,
+      next: { revalidate: 3600 } // Cache for 1 hour
+    });
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch GitHub repo ${repo}: ${res.statusText}`);
+    }
+
+    const data: GitHubRepo = await res.json();
+    return data;
+  } catch (error) {
+    console.error(`Error fetching GitHub project ${repo}:`, error);
+    return null;
+  }
+}
+
+export async function getProjectMetaFromRepo(username: string, repo: string): Promise<any | null> {
+  try {
+    let res = await fetch(`https://raw.githubusercontent.com/${username}/${repo}/master/project-meta.ts`, {
+      cache: 'no-store'
+    });
+
+    if (!res.ok) {
+      res = await fetch(`https://raw.githubusercontent.com/${username}/${repo}/main/project-meta.ts`, {
+        cache: 'no-store'
+      });
+    }
+
+    if (!res.ok) {
+      console.warn(`Could not find project-meta.ts in ${username}/${repo}`);
+      return null;
+    }
+
+    const text = await res.text();
+    const match = text.match(/export\s+const\s+\w+\s*=\s*(\{[\s\S]*\});?\s*$/);
+    if (!match) {
+      console.warn(`Could not parse project-meta.ts in ${username}/${repo}`);
+      return null;
+    }
+    
+    const objStr = match[1];
+    const projectMeta = new Function(`return ${objStr}`)();
+    return projectMeta;
+
+  } catch (error) {
+    console.error(`Error fetching/parsing project-meta.ts for ${repo}:`, error);
+    return null;
   }
 }
