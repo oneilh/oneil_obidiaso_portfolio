@@ -17,7 +17,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <>
-      <Card className="flex flex-col h-full overflow-hidden group relative !bg-card hover:!bg-card-hover backdrop-blur-sm border-2 border-border/50 hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/5 hover:-translate-y-1">
+      <Card className="flex flex-col h-full overflow-hidden group relative !bg-card hover:!bg-card-hover backdrop-blur-sm border-[3px] border-border/80 hover:border-accent/80 dark:border-border/40 dark:hover:border-accent/60 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1">
         {/* Subtle background gradient on hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
