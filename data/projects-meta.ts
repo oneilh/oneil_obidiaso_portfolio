@@ -26,6 +26,15 @@ export const featuredProjects = [
   {
     repo: "space_tourism",
   },
+  {
+    repo: "bi-case-study",
+    name: "Business Intelligence Case Study",
+    description: "A comprehensive analysis of business data, uncovering trends and driving actionable insights.",
+    image: "",
+    tags: ["Data Analysis", "BI", "Case Study"],
+    liveUrl: "#",
+    githubUrl: "",
+  },
 ];
 
 export const otherProjects = [
