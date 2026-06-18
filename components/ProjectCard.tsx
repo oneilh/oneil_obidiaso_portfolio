@@ -68,17 +68,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
           {/* Card Footer Links */}
           <div className="flex items-center gap-2 mt-auto pt-3 border-t border-border/50">
-            <a 
-              href={project.githubUrl} 
-              target="_blank" 
-              rel="noreferrer" 
-              className="flex-1"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Button variant="outline" size="sm" className="w-full gap-2 border-border/50 hover:bg-muted/80 hover:text-foreground transition-all h-8 text-xs">
-                <FiGithub aria-hidden="true" className="w-3.5 h-3.5" /> Source
-              </Button>
-            </a>
+            {project.githubUrl && project.githubUrl !== "#" && project.githubUrl !== "" && (
+              <a 
+                href={project.githubUrl} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="flex-1"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Button variant="outline" size="sm" className="w-full gap-2 border-border/50 hover:bg-muted/80 hover:text-foreground transition-all h-8 text-xs">
+                  <FiGithub aria-hidden="true" className="w-3.5 h-3.5" /> Source
+                </Button>
+              </a>
+            )}
             {project.liveUrl && (
               <a 
                 href={project.liveUrl} 
