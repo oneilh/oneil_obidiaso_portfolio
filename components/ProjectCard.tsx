@@ -58,9 +58,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.description}
           </p>
 
-          <div className="flex flex-wrap gap-1.5 mb-5">
+          <div className="flex flex-wrap gap-1.5 mb-5 relative z-20">
             {project.tags.map(tag => (
-              <span key={tag} className="text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded-md bg-muted/80 text-muted-foreground border border-border/50 group-hover:border-accent/30 group-hover:text-foreground transition-colors duration-300">
+              <span key={tag} className="text-[10px] sm:text-xs font-medium px-2.5 py-0.5 rounded-md bg-accent/5 text-accent/90 border border-accent/20 hover:bg-accent/15 hover:border-accent/30 transition-all duration-300 cursor-default">
                 {tag}
               </span>
             ))}

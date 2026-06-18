@@ -206,11 +206,11 @@ export default async function Home() {
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-border/50">
+                  <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-border/50 relative z-20">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 rounded-md text-xs font-medium bg-muted text-muted-foreground border border-border/50 group-hover:border-accent/30 transition-colors"
+                        className="px-2.5 py-1 rounded-md text-xs font-medium bg-accent/5 text-accent/90 border border-accent/20 hover:bg-accent/15 hover:border-accent/30 transition-all duration-300 cursor-default"
                       >
                         {tag}
                       </span>
