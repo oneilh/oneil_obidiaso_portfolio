@@ -73,57 +73,73 @@ export default async function Home() {
 
       <main className="flex-grow container mx-auto px-4 py-12 flex flex-col gap-32">
         {/* Hero Section */}
-        <section className="pt-12 md:pt-24 flex flex-col items-start max-w-3xl">
-          <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter leading-none mb-6">
-            Building products that matter
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground/80 font-medium mb-10 max-w-2xl leading-relaxed">
-            Frontend engineer thinking like a founder. Full-stack thinking from
-            UI to systems—obsessing over user retention, competitive fit, and
-            how products actually grow.
-          </p>
+        <section className="pt-12 md:pt-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          <div className="flex flex-col items-start max-w-3xl">
+            <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter leading-none mb-6">
+              Building products that matter
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground/80 font-medium mb-10 max-w-2xl leading-relaxed">
+              Frontend engineer thinking like a founder. Full-stack thinking from
+              UI to systems—obsessing over user retention, competitive fit, and
+              how products actually grow.
+            </p>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <a href="#projects">
-              <Button size="lg" className="gap-2">
-                View Projects <FiArrowRight aria-hidden="true" />
-              </Button>
-            </a>
-            <div className="flex items-center gap-2 ml-4">
-              <a
-                href={profile.github}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub Profile"
-              >
-                <Button
+            <div className="flex flex-wrap items-center gap-4">
+              <a href="#projects">
+                <Button size="lg" className="gap-2">
+                  View Projects <FiArrowRight aria-hidden="true" />
+                </Button>
+              </a>
+              <div className="flex items-center gap-2 ml-4">
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub Profile"
+                >
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="w-10 h-10 p-0 rounded-full"
+                  >
+                    <FiGithub className="w-5 h-5" aria-hidden="true" />
+                  </Button>
+                </a>
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn Profile"
+                >
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="w-10 h-10 p-0 rounded-full"
+                  >
+                    <FiLinkedin className="w-5 h-5" aria-hidden="true" />
+                  </Button>
+                </a>
+                <EmailDropdown
+                  email={profile.email}
                   variant="ghost"
                   size="sm"
                   className="w-10 h-10 p-0 rounded-full"
-                >
-                  <FiGithub className="w-5 h-5" aria-hidden="true" />
-                </Button>
-              </a>
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn Profile"
-              >
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="w-10 h-10 p-0 rounded-full"
-                >
-                  <FiLinkedin className="w-5 h-5" aria-hidden="true" />
-                </Button>
-              </a>
-              <EmailDropdown
-                email={profile.email}
-                variant="ghost"
-                size="sm"
-                className="w-10 h-10 p-0 rounded-full"
-                showText={false}
+                  showText={false}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[320px] aspect-square group mt-8 lg:mt-0">
+            {/* Offset Border */}
+            <div className="absolute inset-0 border-2 border-accent rounded-sm translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2 pointer-events-none" />
+            
+            {/* Image Container */}
+            <div className="relative w-full h-full rounded-sm overflow-hidden z-10 bg-accent transition-colors duration-300 group-hover:bg-transparent">
+              <img
+                src="/profile-pic.jpeg"
+                alt="O'Neil Profile"
+                className="w-full h-full object-cover mix-blend-multiply grayscale transition-all duration-300 group-hover:mix-blend-normal group-hover:grayscale-0"
               />
             </div>
           </div>
