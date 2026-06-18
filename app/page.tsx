@@ -12,13 +12,14 @@ import {
   FiDownload,
   FiBarChart2,
 } from "react-icons/fi";
-import { profile, startups, skills, academicProjects } from "@/data/portfolio";
+import { profile, skills, academicProjects } from "@/data/portfolio";
 import { ExperienceTabs } from "@/components/ExperienceTabs";
 import { getProjectMetaFromRepo, getFeaturedProjects } from "@/lib/github";
 import { featuredProjects, ProjectMeta } from "@/data/projects-meta";
 import { ProjectCard } from "@/components/ProjectCard";
 import { EmailDropdown } from "@/components/EmailDropdown";
 import { OtherProjectsModal } from "@/components/OtherProjectsModal";
+// import { StartupCorner } from "@/components/StartupCorner";
 
 export default async function Home() {
   const username = "oneilh";
@@ -45,12 +46,12 @@ export default async function Home() {
             >
               Projects
             </a>
-            <a
+            {/* <a
               href="#startup-corner"
               className="hover:text-foreground transition-colors"
             >
               Startups
-            </a>
+            </a> */}
             <a
               href="#skills"
               className="hover:text-foreground transition-colors"
@@ -156,30 +157,7 @@ export default async function Home() {
         <OtherProjectsModal />
 
         {/* Startup Corner Section */}
-        <section id="startup-corner" className="max-w-4xl">
-          <SectionHeading>Startup Corner</SectionHeading>
-          <p className="text-muted-foreground mb-10 text-lg">
-            A sneak peek into the products I&apos;m actively incubating and
-            building.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            {startups.map((startup, idx) => (
-              <Card key={idx} className="relative overflow-hidden group p-8 !bg-card hover:!bg-card-hover backdrop-blur-sm transition-colors">
-                <div className="absolute top-0 right-0 p-3">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-accent/10 text-accent border border-accent/20">
-                    {startup.status}
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 mt-2 group-hover:text-accent transition-colors">
-                  {startup.name}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-loose">
-                  {startup.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </section>
+        {/* <StartupCorner /> */}
 
         {/* Academic Projects Section */}
         <section id="academic-projects" className="max-w-4xl">

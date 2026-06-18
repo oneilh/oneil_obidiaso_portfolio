@@ -22,7 +22,10 @@ export const featuredProjects = [
     // name: "Custom Event Planner",
     // description: "A custom description",
     // image: "https://my-custom-image.png"
-  }
+  },
+  {
+    repo: "space_tourism",
+  },
 ];
 
 export const otherProjects = [
