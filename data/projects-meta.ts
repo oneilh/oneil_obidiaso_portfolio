@@ -80,4 +80,7 @@ export const otherProjects: any[] = [
   {
     repo: "Rock-Paper-Scissors",
   },
+  {
+    repo: "cybite-landing-page",
+  },
 ];
