@@ -33,7 +33,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <DoodleBackground />
-          <div className="relative z-10 flex flex-col flex-grow">
+          <div className="relative z-10 flex flex-col grow">
             {children}
           </div>
         </ThemeProvider>

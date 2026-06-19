@@ -34,7 +34,7 @@ export function OtherProjectsModal() {
       </Button>
 
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 sm:p-6">
           {/* Backdrop */}
           <div 
             className="absolute inset-0 bg-background/80 backdrop-blur-sm transition-opacity" 
@@ -48,16 +48,16 @@ export function OtherProjectsModal() {
               <h3 className="text-2xl font-bold">Project Archive</h3>
               <Button 
                 variant="ghost" 
-                size="icon" 
+                size="sm" 
                 onClick={() => setIsOpen(false)}
-                className="rounded-full hover:bg-muted"
+                className="rounded-full hover:bg-muted p-2"
               >
                 <FiX className="w-5 h-5" />
               </Button>
             </div>
             
             {/* Body */}
-            <div className="p-6 overflow-y-auto flex-grow flex flex-col gap-4">
+            <div className="p-6 overflow-y-auto grow flex flex-col gap-4">
               <p className="text-muted-foreground mb-2">
                 A collection of other neat projects, experiments, and tools I&apos;ve built.
               </p>
@@ -82,7 +82,7 @@ export function OtherProjectsModal() {
                     </div>
                     
                     <h4 className="font-bold text-lg mb-2">{project.name}</h4>
-                    <p className="text-sm text-muted-foreground flex-grow mb-4">{project.description}</p>
+                    <p className="text-sm text-muted-foreground grow mb-4">{project.description}</p>
                     
                     <div className="flex flex-wrap gap-2 mt-auto">
                       {project.tags.map(tag => (

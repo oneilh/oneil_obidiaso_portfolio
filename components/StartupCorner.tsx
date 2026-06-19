@@ -13,7 +13,7 @@ export function StartupCorner() {
         {startups.map((startup, idx) => (
           <Card
             key={idx}
-            className="relative overflow-hidden group p-8 !bg-card hover:!bg-card-hover backdrop-blur-sm transition-colors"
+            className="relative overflow-hidden group p-8 bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors"
           >
             <div className="absolute top-0 right-0 p-3">
               <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-accent/10 text-accent border border-accent/20">

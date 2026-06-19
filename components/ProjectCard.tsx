@@ -18,7 +18,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <>
       <Card 
-        className="flex flex-col h-full overflow-hidden group relative !bg-card hover:!bg-card-hover backdrop-blur-sm border-[3px] border-border/80 hover:border-accent/80 dark:border-border/40 dark:hover:border-accent/60 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+        className="flex flex-col h-full overflow-hidden group relative bg-card! hover:bg-card-hover! backdrop-blur-sm border-[3px] border-border/80 hover:border-accent/80 dark:border-border/40 dark:hover:border-accent/60 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
         onClick={() => setIsModalOpen(true)}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
@@ -29,7 +29,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         tabIndex={0}
       >
         {/* Subtle background gradient on hover */}
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
         {/* Image Preview Area */}
         <div className="relative w-full h-40 md:h-48 bg-muted overflow-hidden border-b border-border/50">
@@ -41,7 +41,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             unoptimized={project.image.startsWith('http') || project.image.includes('placeholder')}
           />
           {/* Overlay gradient for readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-linear-to-t from-background/80 via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
           
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm bg-background/10">
             <Button 
@@ -54,14 +54,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* Card Content */}
-        <div className="flex flex-col flex-grow p-4 md:p-5 relative z-10">
+        <div className="flex flex-col grow p-4 md:p-5 relative z-10">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-xl font-extrabold tracking-tight group-hover:text-accent transition-colors duration-300">
               {project.name}
             </h3>
           </div>
           
-          <p className="text-muted-foreground mb-4 flex-grow text-sm leading-relaxed line-clamp-3">
+          <p className="text-muted-foreground mb-4 grow text-sm leading-relaxed line-clamp-3">
             {project.description}
           </p>
 
@@ -86,7 +86,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 className="text-[10px] font-bold text-muted-foreground hover:text-foreground inline-flex items-center gap-2 uppercase tracking-[0.15em] relative group/gh"
               >
                 <FiGithub className="w-3.5 h-3.5" /> Source
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-foreground transition-all duration-300 group-hover/gh:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-300 group-hover/gh:w-full"></span>
               </a>
             ) : <div />}
 

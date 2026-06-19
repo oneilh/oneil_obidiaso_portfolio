@@ -17,10 +17,10 @@ export function ProjectModal({ project, isOpen, onOpenChange }: ProjectModalProp
     <Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 transition-opacity" />
-        <Dialog.Content className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-4xl translate-x-[-50%] translate-y-[-50%] gap-4 border-2 border-border bg-background p-6 shadow-lg sm:rounded-lg md:w-full h-[90vh] md:h-[85vh] overflow-hidden flex flex-col">
+        <Dialog.Content className="fixed left-[50%] top-[50%] z-50 w-full max-w-4xl translate-x-[-50%] translate-y-[-50%] gap-4 border-2 border-border bg-background p-6 shadow-lg sm:rounded-lg md:w-full h-[90vh] md:h-[85vh] overflow-hidden flex flex-col">
           
           <div className="flex justify-between items-start mb-6 shrink-0">
-            <div className="flex-grow">
+            <div className="grow">
               <Dialog.Title className="text-2xl md:text-3xl font-extrabold tracking-tight">{project.name}</Dialog.Title>
               <Dialog.Description className="text-muted-foreground mt-1 mb-4 text-sm md:text-base">
                 Deep dive into the architecture, challenges, and details.
@@ -36,7 +36,7 @@ export function ProjectModal({ project, isOpen, onOpenChange }: ProjectModalProp
                 )}
                 {project.liveUrl && (
                   <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                    <Button variant="default" size="sm" className="gap-2 rounded-full px-5 h-9 font-medium group/btn">
+                    <Button variant="primary" size="sm" className="gap-2 rounded-full px-5 h-9 font-medium group/btn">
                       Visit Site <FiArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </Button>
                   </a>
@@ -51,7 +51,7 @@ export function ProjectModal({ project, isOpen, onOpenChange }: ProjectModalProp
             </Dialog.Close>
           </div>
 
-          <div className="flex-grow overflow-y-auto pr-2 custom-scrollbar">
+          <div className="grow overflow-y-auto pr-2 custom-scrollbar">
             {project.details ? (
               <div className="space-y-8 pb-8 mt-2">
                 {project.details.overview && (

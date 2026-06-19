@@ -71,7 +71,7 @@ export default async function Home() {
         </div>
       </header>
 
-      <main className="flex-grow container max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-12 flex flex-col gap-32">
+      <main className="grow container max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-12 flex flex-col gap-32">
         {/* Hero Section */}
         <section className="pt-12 md:pt-24 flex flex-col items-start max-w-3xl">
           <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter leading-none mb-6">
@@ -181,8 +181,8 @@ export default async function Home() {
           <SectionHeading>Technical Arsenal</SectionHeading>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Frontend Card */}
-            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-card hover:!bg-card-hover backdrop-blur-sm transition-colors">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors">
+              <div className="absolute inset-0 bg-linear-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                 Frontend & Languages
@@ -209,8 +209,8 @@ export default async function Home() {
             </Card>
 
             {/* BaaS Card */}
-            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-card hover:!bg-card-hover backdrop-blur-sm transition-colors">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors">
+              <div className="absolute inset-0 bg-linear-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90">
                 Backend as a Service
               </h3>
@@ -236,8 +236,8 @@ export default async function Home() {
             </Card>
 
             {/* Tools Card */}
-            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-card hover:!bg-card-hover backdrop-blur-sm transition-colors">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors">
+              <div className="absolute inset-0 bg-linear-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90">
                 Tools & Core
               </h3>
@@ -263,8 +263,8 @@ export default async function Home() {
             </Card>
 
             {/* Data & Analytics Card */}
-            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card !bg-card hover:!bg-card-hover backdrop-blur-sm transition-colors">
-              <div className="absolute inset-0 bg-gradient-to-bl from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors">
+              <div className="absolute inset-0 bg-linear-to-bl from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90">
                 Data & Analytics
               </h3>

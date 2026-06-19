@@ -37,10 +37,10 @@ export function ExperienceTabs() {
             {timeline.map((item, idx) => (
               <div key={idx} className="relative group">
                 {/* Timeline dot with hover glow */}
-                <span className="absolute -left-[41px] top-6 h-5 w-5 rounded-full bg-background border-4 border-accent group-hover:shadow-[0_0_12px_rgba(var(--accent),0.5)] transition-all duration-300" />
+                <span className="absolute left-[-41px] top-6 h-5 w-5 rounded-full bg-background border-4 border-accent group-hover:shadow-[0_0_12px_rgba(var(--accent),0.5)] transition-all duration-300" />
                 
-                <Card className="p-6 relative overflow-hidden border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-xl hover:shadow-accent/5 !bg-card hover:!bg-card-hover backdrop-blur-sm">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <Card className="p-6 relative overflow-hidden border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-xl hover:shadow-accent/5 bg-card! hover:bg-card-hover! backdrop-blur-sm">
+                  <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
@@ -68,11 +68,11 @@ export function ExperienceTabs() {
 
         {activeTab === 'education' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in duration-500">
-            <Card className="relative overflow-hidden group p-8 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 !bg-card hover:!bg-card-hover backdrop-blur-sm flex flex-col">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <FiBookOpen className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/[0.03] group-hover:text-accent/[0.08] transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
+            <Card className="relative overflow-hidden group p-8 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-card! hover:bg-card-hover! backdrop-blur-sm flex flex-col">
+              <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <FiBookOpen className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/3 group-hover:text-accent/8 transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
               
-              <div className="relative z-10 flex-grow flex flex-col">
+              <div className="relative z-10 grow flex flex-col">
                 <div className="flex items-start justify-between gap-4 mb-6">
                   <div>
                     <h4 className="text-2xl font-extrabold text-foreground tracking-tight group-hover:text-accent transition-colors">
@@ -87,9 +87,9 @@ export function ExperienceTabs() {
                   </div>
                 </div>
                 
-                <div className="h-px w-full bg-gradient-to-r from-border/50 to-transparent mb-6" />
+                <div className="h-px w-full bg-linear-to-r from-border/50 to-transparent mb-6" />
                 
-                <div className="flex-grow">
+                <div className="grow">
                   <h5 className="text-xs font-bold mb-4 text-foreground/50 uppercase tracking-[0.2em]">
                     Relevant Modules
                   </h5>
@@ -123,11 +123,11 @@ export function ExperienceTabs() {
               </div>
             </Card>
 
-            <Card className="relative overflow-hidden group p-8 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 !bg-card hover:!bg-card-hover backdrop-blur-sm flex flex-col">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <FiAward className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/[0.03] group-hover:text-accent/[0.08] transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
+            <Card className="relative overflow-hidden group p-8 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-card! hover:bg-card-hover! backdrop-blur-sm flex flex-col">
+              <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <FiAward className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/3 group-hover:text-accent/8 transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
               
-              <div className="relative z-10 flex-grow flex flex-col">
+              <div className="relative z-10 grow flex flex-col">
                 <div className="flex items-start justify-between gap-4 mb-6">
                   <div>
                     <h4 className="text-2xl font-extrabold text-foreground tracking-tight group-hover:text-accent transition-colors">
@@ -142,9 +142,9 @@ export function ExperienceTabs() {
                   </div>
                 </div>
                 
-                <div className="h-px w-full bg-gradient-to-r from-border/50 to-transparent mb-6" />
+                <div className="h-px w-full bg-linear-to-r from-border/50 to-transparent mb-6" />
                 
-                <div className="flex-grow">
+                <div className="grow">
                   <h5 className="text-xs font-bold mb-4 text-foreground/50 uppercase tracking-[0.2em]">
                     Key Focus Areas
                   </h5>
