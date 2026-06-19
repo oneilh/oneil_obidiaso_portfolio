@@ -14,7 +14,7 @@ import {
 } from "react-icons/fi";
 import { profile, skills } from "@/data/portfolio";
 import { ExperienceTabs } from "@/components/ExperienceTabs";
-import { getProjectMetaFromRepo, getFeaturedProjects } from "@/lib/github";
+import { getProjectMetaFromRepo, getFeaturedProjects, getOtherProjects } from "@/lib/github";
 import { featuredProjects, ProjectMeta } from "@/data/projects-meta";
 import { ProjectCard } from "@/components/ProjectCard";
 import { EmailDropdown } from "@/components/EmailDropdown";
@@ -25,6 +25,7 @@ export default async function Home() {
   const username = "oneilh";
 
   const fetchedProjects: ProjectMeta[] = await getFeaturedProjects(username);
+  const fetchedOtherProjects: ProjectMeta[] = await getOtherProjects(username);
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
@@ -174,7 +175,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <OtherProjectsModal />
+        <OtherProjectsModal projects={fetchedOtherProjects} />
 
         {/* Startup Corner Section */}
         {/* <StartupCorner /> */}

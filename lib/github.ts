@@ -9,30 +9,41 @@ export interface GitHubRepo {
   topics?: string[];
 }
 
-import { featuredProjects, ProjectMeta } from "../data/projects-meta";
+import { featuredProjects, otherProjects, ProjectMeta } from "../data/projects-meta";
 
 export async function getFeaturedProjects(username: string): Promise<ProjectMeta[]> {
   try {
     const projects = [];
 
     for (const item of featuredProjects) {
-      const repoName = item.repo;
+      if (item.repo) {
+        const repoName = item.repo;
+        const projectMeta = await getProjectMetaFromRepo(username, repoName);
 
-      // Fetch the project-meta.json file from the repo itself
-      const projectMeta = await getProjectMetaFromRepo(username, repoName);
-
-      // Combine defaults, the remote JSON data, and local overrides gracefully
-      projects.push({
-        id: repoName,
-        name: repoName.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
-        description: "No description provided.",
-        tags: [],
-        image: "/placeholder.png",
-        githubUrl: `https://github.com/${username}/${repoName}`,
-        repoName: `${username}/${repoName}`,
-        ...projectMeta,
-        ...item,
-      });
+        projects.push({
+          id: repoName,
+          name: repoName.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+          description: "No description provided.",
+          tags: [],
+          image: "/placeholder.png",
+          githubUrl: `https://github.com/${username}/${repoName}`,
+          repoName: `${username}/${repoName}`,
+          ...projectMeta,
+          ...item,
+        });
+      } else {
+        projects.push({
+          id: item.id || `custom-${Math.random().toString(36).substring(7)}`,
+          name: item.name || "Unknown Project",
+          description: item.description || "",
+          tags: item.tags || [],
+          image: item.image || "/placeholder.png",
+          githubUrl: item.githubUrl || "#",
+          liveUrl: item.liveUrl,
+          repoName: item.repoName || item.name || "unknown",
+          ...item,
+        } as ProjectMeta);
+      }
     }
 
     if (projects.length === 0) {
@@ -63,6 +74,48 @@ export async function getFeaturedProjects(username: string): Promise<ProjectMeta
         repoName: "oneilh/nextjs-saas-template",
       }
     ];
+  }
+}
+
+export async function getOtherProjects(username: string): Promise<ProjectMeta[]> {
+  try {
+    const projects: ProjectMeta[] = [];
+
+    for (const item of otherProjects) {
+      if (item.repo) {
+        const repoName = item.repo;
+        const projectMeta = await getProjectMetaFromRepo(username, repoName);
+
+        projects.push({
+          id: repoName,
+          name: repoName.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+          description: "No description provided.",
+          tags: [],
+          image: "/placeholder.png",
+          githubUrl: `https://github.com/${username}/${repoName}`,
+          repoName: `${username}/${repoName}`,
+          ...projectMeta,
+          ...item,
+        });
+      } else {
+        projects.push({
+          id: item.id || `custom-${Math.random().toString(36).substring(7)}`,
+          name: item.name || "Unknown Project",
+          description: item.description || "",
+          tags: item.tags || [],
+          image: item.image || "/placeholder.png",
+          githubUrl: item.githubUrl || "#",
+          liveUrl: item.liveUrl,
+          repoName: item.repoName || item.name || "unknown",
+          ...item,
+        } as ProjectMeta);
+      }
+    }
+
+    return projects;
+  } catch (error) {
+    console.error("Error fetching other projects:", error);
+    return [];
   }
 }
 
@@ -98,12 +151,12 @@ export async function getProjectByRepo(username: string, repo: string): Promise<
 export async function getProjectMetaFromRepo(username: string, repo: string): Promise<any | null> {
   try {
     let res = await fetch(`https://raw.githubusercontent.com/${username}/${repo}/master/project-meta.json`, {
-      next: { revalidate: 3600 }
+      next: { revalidate: 0 }
     });
 
     if (!res.ok) {
       res = await fetch(`https://raw.githubusercontent.com/${username}/${repo}/main/project-meta.json`, {
-        next: { revalidate: 3600 }
+        next: { revalidate: 0 }
       });
     }
 

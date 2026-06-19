@@ -6,7 +6,7 @@ export interface ProjectMeta {
   image: string;
   githubUrl: string;
   liveUrl?: string;
-  repoName: string;
+  repoName?: string;
   details?: {
     overview: string;
     features: string[];
@@ -15,7 +15,7 @@ export interface ProjectMeta {
   };
 }
 
-export const featuredProjects = [
+export const featuredProjects: any[] = [
   {
     repo: "event_planner",
     // Optional overrides
@@ -27,24 +27,31 @@ export const featuredProjects = [
     repo: "space_tourism",
   },
   {
-    repo: "bi-case-study",
     name: "Esports BT Case Study",
-    description: "A comprehensive data mining and visual analytics study on esports tournaments, leveraging K-Means clustering to uncover prize...",
+    description:
+      "A comprehensive data mining and visual analytics study on esports tournaments, leveraging K-Means clustering to uncover prize...",
     image: "/images/bi-case-study/cover.png",
-    tags: ["Data Mining", "Tableau", "Orange", "K-Means Clustering", "Business Intelligence"],
+    tags: [
+      "Data Mining",
+      "Tableau",
+      "Orange",
+      "K-Means Clustering",
+      "Business Intelligence",
+    ],
     githubUrl: "",
     details: {
-      overview: "A comprehensive data mining and visual analytics study on the esports tournament ecosystem (2014-2019). The project leverages K-Means clustering to categorize tournaments and uncover prize distribution trends, providing actionable intelligence for organizers, sponsors, and investors.",
+      overview:
+        "A comprehensive data mining and visual analytics study on the esports tournament ecosystem (2014-2019). The project leverages K-Means clustering to categorize tournaments and uncover prize distribution trends, providing actionable intelligence for organizers, sponsors, and investors.",
       features: [
         "Analyzed regional patterns and yearly trends in esports prize distributions.",
         "Categorized tournaments into low, medium, and high-tier using K-Means clustering.",
         "Verified clustering models using silhouette analysis for data cohesion.",
-        "Formulated actionable business intelligence strategies for event planning, sponsorship allocation, and competitive analysis."
+        "Formulated actionable business intelligence strategies for event planning, sponsorship allocation, and competitive analysis.",
       ],
       technicalHighlights: [
         "Data Mining & Machine Learning (K-Means Clustering, Silhouette Analysis)",
         "Data Visualization & Analytics (Tableau, Orange)",
-        "Business Intelligence & Strategic Consulting"
+        "Business Intelligence & Strategic Consulting",
       ],
       gallery: [
         "/images/bi-case-study/workflow.png",
@@ -54,54 +61,23 @@ export const featuredProjects = [
         "/images/bi-case-study/dashboard-1.png",
         "/images/bi-case-study/dashboard-2.png",
         "/images/bi-case-study/prize-dist-box.png",
-        "/images/bi-case-study/prize-vs-tourney-scatter.png"
-      ]
-    }
+        "/images/bi-case-study/prize-vs-tourney-scatter.png",
+      ],
+    },
   },
 ];
 
-export const otherProjects = [
+export const otherProjects: any[] = [
+  // {
+  //   id: "mini-1",
+  //   name: "Terminal Portfolio",
+  //   description:
+  //     "A command-line inspired portfolio interface built for developers.",
+  //   tags: ["React", "CSS", "Vite"],
+  //   githubUrl: "#",
+  //   liveUrl: "#",
+  // },
   {
-    id: "mini-1",
-    name: "Terminal Portfolio",
-    description:
-      "A command-line inspired portfolio interface built for developers.",
-    tags: ["React", "CSS", "Vite"],
-    githubUrl: "#",
-    liveUrl: "#",
-  },
-  {
-    id: "mini-2",
-    name: "Weather Dashboard",
-    description:
-      "Real-time weather tracking with beautiful dynamic gradients based on time of day.",
-    tags: ["Next.js", "API", "Tailwind"],
-    githubUrl: "#",
-  },
-  {
-    id: "mini-3",
-    name: "Algorithm Visualizer",
-    description:
-      "Interactive visualizer for sorting and pathfinding algorithms.",
-    tags: ["TypeScript", "Canvas"],
-    githubUrl: "#",
-    liveUrl: "#",
-  },
-  {
-    id: "mini-4",
-    name: "Crypto Tracker",
-    description:
-      "Lightweight dashboard to track top 50 cryptocurrencies using WebSockets.",
-    tags: ["Vue", "WebSockets"],
-    githubUrl: "#",
-  },
-  {
-    id: "mini-5",
-    name: "Markdown Editor",
-    description:
-      "In-browser markdown editor with live preview and syntax highlighting.",
-    tags: ["React", "CodeMirror"],
-    githubUrl: "#",
-    liveUrl: "#",
+    repo: "Rock-Paper-Scissors",
   },
 ];

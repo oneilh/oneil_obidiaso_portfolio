@@ -1,12 +1,16 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { otherProjects } from "@/data/projects-meta";
+import { ProjectMeta } from "@/data/projects-meta";
 import { FiX, FiFolder, FiGithub, FiExternalLink } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
-export function OtherProjectsModal() {
+interface OtherProjectsModalProps {
+  projects: ProjectMeta[];
+}
+
+export function OtherProjectsModal({ projects }: OtherProjectsModalProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   // Prevent scrolling when modal is open
@@ -63,7 +67,7 @@ export function OtherProjectsModal() {
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {otherProjects.map((project) => (
+                {projects.map((project) => (
                   <Card key={project.id} className="p-5 flex flex-col h-full bg-muted/30 border-border/50 hover:border-accent/50 transition-colors">
                     <div className="flex justify-between items-start mb-3">
                       <FiFolder className="w-8 h-8 text-accent/70" />
