@@ -23,7 +23,7 @@ import { OtherProjectsModal } from "@/components/OtherProjectsModal";
 
 export default async function Home() {
   const username = "oneilh";
-  
+
   const fetchedProjects: ProjectMeta[] = await getFeaturedProjects(username);
   return (
     <div className="flex flex-col min-h-screen">
@@ -130,17 +130,21 @@ export default async function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <section
+          id="about"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center"
+        >
           <div className="max-w-3xl">
             <SectionHeading>About Me</SectionHeading>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
               <p>
-                I am a frontend engineer obsessed with product thinking and clean
-                UX. I have tutored in web development, shipped freelance work, and
-                I am constantly building and learning through execution. My tech
-                stack includes React, Next.js, and growing full-stack skills. I
-                care about systems, mental models, and the details that separate
-                good products from great ones.
+                Hello! My name is O'Neil Obidiaso. I am a frontend engineer
+                obsessed with product thinking and clean UX. I have tutored in
+                web development, shipped freelance work, and I am constantly
+                building and learning through execution. My tech stack includes
+                React, Next.js, and growing full-stack skills. I care about
+                systems, mental models, and the details that separate good
+                products from great ones.
               </p>
             </div>
           </div>
@@ -148,7 +152,7 @@ export default async function Home() {
           <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[320px] aspect-square group mt-8 lg:mt-0">
             {/* Offset Border */}
             <div className="absolute inset-0 border-2 border-accent rounded-sm translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2 pointer-events-none" />
-            
+
             {/* Image Container */}
             <div className="relative w-full h-full rounded-sm overflow-hidden z-10 bg-accent transition-colors duration-300 group-hover:bg-transparent">
               <img
@@ -174,7 +178,6 @@ export default async function Home() {
 
         {/* Startup Corner Section */}
         {/* <StartupCorner /> */}
-
 
         {/* Skills Section */}
         <section id="skills">
