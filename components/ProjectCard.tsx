@@ -18,8 +18,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <>
       <Card 
-        className="flex flex-col h-full overflow-hidden group relative !bg-card hover:!bg-card-hover backdrop-blur-sm border-[3px] border-border/80 hover:border-accent/80 dark:border-border/40 dark:hover:border-accent/60 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1 cursor-pointer"
+        className="flex flex-col h-full overflow-hidden group relative !bg-card hover:!bg-card-hover backdrop-blur-sm border-[3px] border-border/80 hover:border-accent/80 dark:border-border/40 dark:hover:border-accent/60 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
         onClick={() => setIsModalOpen(true)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setIsModalOpen(true);
+          }
+        }}
+        tabIndex={0}
       >
         {/* Subtle background gradient on hover */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -38,7 +45,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm bg-background/10">
             <Button 
-              variant="default" 
+              variant="primary" 
               className="rounded-full px-5 py-4 gap-2 font-semibold shadow-2xl scale-90 group-hover:scale-100 transition-all duration-500 ease-out text-sm pointer-events-none"
             >
               <FiInfo className="w-4 h-4" /> Explore Project
@@ -58,40 +65,44 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.description}
           </p>
 
-          <div className="flex flex-wrap gap-1.5 mb-5 relative z-20">
-            {project.tags.map(tag => (
-              <span key={tag} className="text-[10px] sm:text-xs font-medium px-2.5 py-0.5 rounded-md bg-accent/5 text-accent/90 border border-accent/20 hover:bg-accent/15 hover:border-accent/30 transition-all duration-300 cursor-default">
+          <div className="flex flex-wrap items-center gap-y-1.5 gap-x-0 mb-5 relative z-20">
+            {project.tags.map((tag, index) => (
+              <span key={tag} className="flex items-center text-[10px] sm:text-[11px] font-bold text-muted-foreground/70 uppercase tracking-wider cursor-default hover:text-accent transition-colors">
                 {tag}
+                {index < project.tags.length - 1 && <span className="mx-2.5 text-border/60">•</span>}
               </span>
             ))}
           </div>
 
           {/* Card Footer Links */}
-          <div className="flex items-center gap-2 mt-auto pt-3 border-t border-border/50">
-            {project.githubUrl && project.githubUrl !== "#" && project.githubUrl !== "" && (
+          <div className="mt-auto pt-6 flex items-center justify-between border-t border-border/40 z-30 relative">
+            {project.githubUrl && project.githubUrl !== "#" && project.githubUrl !== "" ? (
               <a 
                 href={project.githubUrl} 
                 target="_blank" 
-                rel="noreferrer" 
-                className="flex-1"
+                rel="noreferrer"
+                aria-label={`View source code for ${project.name} on GitHub`}
                 onClick={(e) => e.stopPropagation()}
+                className="text-[10px] font-bold text-muted-foreground hover:text-foreground inline-flex items-center gap-2 uppercase tracking-[0.15em] relative group/gh"
               >
-                <Button variant="outline" size="sm" className="w-full gap-2 border-border/50 hover:bg-muted/80 hover:text-foreground transition-all h-8 text-xs">
-                  <FiGithub aria-hidden="true" className="w-3.5 h-3.5" /> Source
-                </Button>
+                <FiGithub className="w-3.5 h-3.5" /> Source
+                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-foreground transition-all duration-300 group-hover/gh:w-full"></span>
               </a>
-            )}
+            ) : <div />}
+
             {project.liveUrl && (
               <a 
                 href={project.liveUrl} 
                 target="_blank" 
-                rel="noreferrer" 
-                className="flex-1"
+                rel="noreferrer"
+                aria-label={`View live demo of ${project.name}`}
                 onClick={(e) => e.stopPropagation()}
+                className="flex items-center gap-2.5 text-xs font-bold text-accent group/demo uppercase tracking-wider"
               >
-                <Button variant="default" size="sm" className="w-full gap-2 group/btn h-8 text-xs">
-                  Live Demo <FiArrowRight aria-hidden="true" className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
+                <span className="group-hover/demo:text-accent/80 transition-colors">Live Site</span>
+                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center group-hover/demo:bg-accent group-hover/demo:text-accent-foreground transition-all duration-500 shadow-sm">
+                  <FiArrowRight className="w-4 h-4 -rotate-45 group-hover/demo:rotate-0 transition-transform duration-500 ease-out" />
+                </div>
               </a>
             )}
           </div>
