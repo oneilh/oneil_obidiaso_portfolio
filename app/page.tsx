@@ -71,62 +71,77 @@ export default async function Home() {
         </div>
       </header>
 
-      <main className="flex-grow container mx-auto px-4 py-12 flex flex-col gap-32">
+      <main className="flex-grow container max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-12 flex flex-col gap-32">
         {/* Hero Section */}
-        <section className="pt-12 md:pt-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          <div className="flex flex-col items-start max-w-3xl">
-            <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter leading-none mb-6">
-              Building products that matter
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground/80 font-medium mb-10 max-w-2xl leading-relaxed">
-              Frontend engineer thinking like a founder. Full-stack thinking from
-              UI to systems—obsessing over user retention, competitive fit, and
-              how products actually grow.
-            </p>
+        <section className="pt-12 md:pt-24 flex flex-col items-start max-w-3xl">
+          <h1 className="text-5xl md:text-8xl font-extrabold tracking-tighter leading-none mb-6">
+            Building products that matter
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground/80 font-medium mb-10 max-w-2xl leading-relaxed">
+            Frontend engineer thinking like a founder. Full-stack thinking from
+            UI to systems—obsessing over user retention, competitive fit, and
+            how products actually grow.
+          </p>
 
-            <div className="flex flex-wrap items-center gap-4">
-              <a href="#projects">
-                <Button size="lg" className="gap-2">
-                  View Projects <FiArrowRight aria-hidden="true" />
-                </Button>
-              </a>
-              <div className="flex items-center gap-2 ml-4">
-                <a
-                  href={profile.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="GitHub Profile"
-                >
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="w-10 h-10 p-0 rounded-full"
-                  >
-                    <FiGithub className="w-5 h-5" aria-hidden="true" />
-                  </Button>
-                </a>
-                <a
-                  href={profile.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="LinkedIn Profile"
-                >
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="w-10 h-10 p-0 rounded-full"
-                  >
-                    <FiLinkedin className="w-5 h-5" aria-hidden="true" />
-                  </Button>
-                </a>
-                <EmailDropdown
-                  email={profile.email}
+          <div className="flex flex-wrap items-center gap-4">
+            <a href="#projects">
+              <Button size="lg" className="gap-2">
+                View Projects <FiArrowRight aria-hidden="true" />
+              </Button>
+            </a>
+            <div className="flex items-center gap-2 ml-4">
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub Profile"
+              >
+                <Button
                   variant="ghost"
                   size="sm"
                   className="w-10 h-10 p-0 rounded-full"
-                  showText={false}
-                />
-              </div>
+                >
+                  <FiGithub className="w-5 h-5" aria-hidden="true" />
+                </Button>
+              </a>
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn Profile"
+              >
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="w-10 h-10 p-0 rounded-full"
+                >
+                  <FiLinkedin className="w-5 h-5" aria-hidden="true" />
+                </Button>
+              </a>
+              <EmailDropdown
+                email={profile.email}
+                variant="ghost"
+                size="sm"
+                className="w-10 h-10 p-0 rounded-full"
+                showText={false}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          <div className="max-w-3xl">
+            <SectionHeading>About Me</SectionHeading>
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                I am a frontend engineer obsessed with product thinking and clean
+                UX. I have tutored in web development, shipped freelance work, and
+                I am constantly building and learning through execution. My tech
+                stack includes React, Next.js, and growing full-stack skills. I
+                care about systems, mental models, and the details that separate
+                good products from great ones.
+              </p>
             </div>
           </div>
 
@@ -142,21 +157,6 @@ export default async function Home() {
                 className="w-full h-full object-cover mix-blend-multiply grayscale transition-all duration-300 group-hover:mix-blend-normal group-hover:grayscale-0"
               />
             </div>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section id="about" className="max-w-3xl">
-          <SectionHeading>About Me</SectionHeading>
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-            <p>
-              I am a frontend engineer obsessed with product thinking and clean
-              UX. I have tutored in web development, shipped freelance work, and
-              I am constantly building and learning through execution. My tech
-              stack includes React, Next.js, and growing full-stack skills. I
-              care about systems, mental models, and the details that separate
-              good products from great ones.
-            </p>
           </div>
         </section>
 
