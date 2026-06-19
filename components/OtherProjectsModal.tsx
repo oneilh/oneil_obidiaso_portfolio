@@ -67,14 +67,14 @@ export function OtherProjectsModal() {
                   <Card key={project.id} className="p-5 flex flex-col h-full bg-muted/30 border-border/50 hover:border-accent/50 transition-colors">
                     <div className="flex justify-between items-start mb-3">
                       <FiFolder className="w-8 h-8 text-accent/70" />
-                      <div className="flex gap-2">
-                        {project.githubUrl && project.githubUrl !== "#" && (
-                          <a href={project.githubUrl} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                      <div className="flex gap-3 items-center">
+                        {project.githubUrl && (
+                          <a href={project.githubUrl} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent transition-all hover:-translate-y-1 p-1">
                             <FiGithub className="w-5 h-5" />
                           </a>
                         )}
-                        {project.liveUrl && project.liveUrl !== "#" && (
-                          <a href={project.liveUrl} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                        {project.liveUrl && (
+                          <a href={project.liveUrl} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent transition-all hover:-translate-y-1 p-1">
                             <FiExternalLink className="w-5 h-5" />
                           </a>
                         )}
