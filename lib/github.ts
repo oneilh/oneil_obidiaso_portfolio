@@ -22,7 +22,7 @@ export async function getFeaturedProjects(username: string): Promise<ProjectMeta
 
         projects.push({
           id: repoName,
-          name: repoName.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+          name: repoName.replace(/-/g, " ").replace(/\b\w/g, (l: string) => l.toUpperCase()),
           description: "No description provided.",
           tags: [],
           image: "/placeholder.png",
@@ -88,7 +88,7 @@ export async function getOtherProjects(username: string): Promise<ProjectMeta[]>
 
         projects.push({
           id: repoName,
-          name: repoName.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+          name: repoName.replace(/-/g, " ").replace(/\b\w/g, (l: string) => l.toUpperCase()),
           description: "No description provided.",
           tags: [],
           image: "/placeholder.png",
@@ -148,15 +148,15 @@ export async function getProjectByRepo(username: string, repo: string): Promise<
   }
 }
 
-export async function getProjectMetaFromRepo(username: string, repo: string): Promise<any | null> {
+export async function getProjectMetaFromRepo(username: string, repo: string): Promise<Partial<ProjectMeta> | null> {
   try {
     let res = await fetch(`https://raw.githubusercontent.com/${username}/${repo}/master/project-meta.json`, {
-      next: { revalidate: 0 }
+      next: { revalidate: 3600 }
     });
 
     if (!res.ok) {
       res = await fetch(`https://raw.githubusercontent.com/${username}/${repo}/main/project-meta.json`, {
-        next: { revalidate: 0 }
+        next: { revalidate: 3600 }
       });
     }
 
