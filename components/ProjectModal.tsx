@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { FiX, FiGithub, FiArrowRight } from "react-icons/fi";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ProjectMeta } from "@/data/projects-meta";
+import { Lightbox } from "./Lightbox";
 
 interface ProjectModalProps {
   project: ProjectMeta;
@@ -13,8 +15,11 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, isOpen, onOpenChange }: ProjectModalProps) {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
   return (
-    <Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
+    <>
+      <Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 transition-opacity" />
         <Dialog.Content className="fixed left-[50%] top-[50%] z-50 w-full max-w-4xl translate-x-[-50%] translate-y-[-50%] gap-4 border-2 border-border bg-background p-6 shadow-lg sm:rounded-lg md:w-full h-[90vh] md:h-[85vh] overflow-hidden flex flex-col">
@@ -90,14 +95,19 @@ export function ProjectModal({ project, isOpen, onOpenChange }: ProjectModalProp
                     <h3 className="text-xl font-semibold mb-4">Gallery</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {project.details.gallery.map((img, i) => (
-                        <div key={i} className="relative h-48 md:h-64 rounded-lg overflow-hidden border border-border">
+                        <div 
+                          key={i} 
+                          className="relative h-48 md:h-64 rounded-lg overflow-hidden border border-border cursor-pointer group"
+                          onClick={() => setLightboxIndex(i)}
+                        >
                           <Image 
                             src={img} 
                             alt={`${project.name} gallery image ${i + 1}`} 
                             fill 
-                            className="object-cover"
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
                             unoptimized={img.startsWith('http') || img.includes('placeholder')}
                           />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                         </div>
                       ))}
                     </div>
@@ -113,5 +123,13 @@ export function ProjectModal({ project, isOpen, onOpenChange }: ProjectModalProp
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
+      <Lightbox
+        images={project.details?.gallery || []}
+        currentIndex={lightboxIndex ?? 0}
+        isOpen={lightboxIndex !== null}
+        onClose={() => setLightboxIndex(null)}
+        onChangeIndex={setLightboxIndex}
+      />
+    </>
   );
 }
