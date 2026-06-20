@@ -37,6 +37,7 @@ export const featuredProjects: any[] = [
       "Orange",
       "K-Means Clustering",
       "Business Intelligence",
+      "Academic BI Project"
     ],
     githubUrl: "",
     details: {
