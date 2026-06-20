@@ -75,43 +75,17 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onChangeIndex 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md pointer-events-auto"
         >
-          {/* Close Button */}
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 z-50 p-2 text-white/70 hover:text-white transition-colors bg-black/20 hover:bg-black/40 rounded-full"
-            aria-label="Close lightbox"
-          >
-            <FiX className="w-8 h-8" />
-          </button>
-
-          {/* Prev Button */}
-          {currentIndex > 0 && (
-            <button
-              onClick={(e) => { e.stopPropagation(); handlePrev(); }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-3 text-white/70 hover:text-white transition-colors bg-black/20 hover:bg-black/40 rounded-full hidden sm:block"
-              aria-label="Previous image"
-            >
-              <FiChevronLeft className="w-8 h-8" />
-            </button>
-          )}
-
-          {/* Next Button */}
-          {currentIndex < images.length - 1 && (
-            <button
-              onClick={(e) => { e.stopPropagation(); handleNext(); }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-3 text-white/70 hover:text-white transition-colors bg-black/20 hover:bg-black/40 rounded-full hidden sm:block"
-              aria-label="Next image"
-            >
-              <FiChevronRight className="w-8 h-8" />
-            </button>
-          )}
-
           {/* Image Container */}
           <div 
             className="relative w-full h-full max-w-7xl max-h-[100vh] p-4 flex items-center justify-center"
-            onClick={onClose} // Clicking background closes
+            onClick={onClose}
+            onPointerDown={(e) => {
+              if (e.target === e.currentTarget) {
+                onClose();
+              }
+            }}
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -124,7 +98,8 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onChangeIndex 
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.2}
                 onDragEnd={handleDragEnd}
-                onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
+                onClick={(e) => e.stopPropagation()}
+                onPointerDown={(e) => e.stopPropagation()}
                 className="relative w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing"
               >
                 <Image
@@ -140,8 +115,42 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onChangeIndex 
             </AnimatePresence>
           </div>
 
+          {/* Close Button */}
+          <button
+            onClick={(e) => { e.stopPropagation(); onClose(); }}
+            onPointerDown={(e) => { e.stopPropagation(); onClose(); }}
+            className="absolute top-4 right-4 z-[100] p-3 text-white/70 hover:text-white transition-colors bg-black/20 hover:bg-black/40 rounded-full cursor-pointer pointer-events-auto"
+            aria-label="Close lightbox"
+          >
+            <FiX className="w-8 h-8 pointer-events-none" />
+          </button>
+
+          {/* Prev Button */}
+          {currentIndex > 0 && (
+            <button
+              onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+              onPointerDown={(e) => { e.stopPropagation(); handlePrev(); }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-[100] p-3 text-white/70 hover:text-white transition-colors bg-black/20 hover:bg-black/40 rounded-full hidden sm:block cursor-pointer pointer-events-auto"
+              aria-label="Previous image"
+            >
+              <FiChevronLeft className="w-8 h-8 pointer-events-none" />
+            </button>
+          )}
+
+          {/* Next Button */}
+          {currentIndex < images.length - 1 && (
+            <button
+              onClick={(e) => { e.stopPropagation(); handleNext(); }}
+              onPointerDown={(e) => { e.stopPropagation(); handleNext(); }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-[100] p-3 text-white/70 hover:text-white transition-colors bg-black/20 hover:bg-black/40 rounded-full hidden sm:block cursor-pointer pointer-events-auto"
+              aria-label="Next image"
+            >
+              <FiChevronRight className="w-8 h-8 pointer-events-none" />
+            </button>
+          )}
+
           {/* Image Counter */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-sm font-medium tracking-widest bg-black/40 px-4 py-2 rounded-full">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-sm font-medium tracking-widest bg-black/40 px-4 py-2 rounded-full pointer-events-none">
             {currentIndex + 1} / {images.length}
           </div>
         </motion.div>
