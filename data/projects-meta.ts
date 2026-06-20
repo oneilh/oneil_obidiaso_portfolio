@@ -24,6 +24,9 @@ export const featuredProjects: any[] = [
     // image: "https://my-custom-image.png"
   },
   {
+    repo: "outsy--app1",
+  },
+  {
     repo: "space_tourism",
   },
   {
@@ -37,7 +40,7 @@ export const featuredProjects: any[] = [
       "Orange",
       "K-Means Clustering",
       "Business Intelligence",
-      "Academic BI Project"
+      "Academic BI Project",
     ],
     githubUrl: "",
     details: {
