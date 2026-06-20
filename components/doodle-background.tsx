@@ -31,7 +31,7 @@ export function DoodleBackground() {
       {doodles.map((item, i) => (
         <div
           key={i}
-          className="absolute text-foreground opacity-20 dark:opacity-40 animate-float"
+          className="absolute text-foreground opacity-5 dark:opacity-10 animate-float"
           style={{
             top: item.top,
             left: item.left,
