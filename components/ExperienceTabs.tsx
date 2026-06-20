@@ -40,11 +40,11 @@ export function ExperienceTabs() {
                 <span className="absolute left-[-41px] top-6 h-5 w-5 rounded-full bg-background border-4 border-accent group-hover:shadow-[0_0_12px_rgba(var(--accent),0.5)] transition-all duration-300" />
                 
                 <Card className="p-6 relative overflow-hidden border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-xl hover:shadow-accent/5 bg-card! hover:bg-card-hover! backdrop-blur-sm">
-                  <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                      <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">
+                      <h3 className="text-2xl font-bold text-accent lg:text-foreground lg:group-hover:text-accent transition-colors">
                         {item.title}
                       </h3>
                       <span className="inline-block py-1 px-3 text-xs font-bold bg-accent/10 text-accent border-2 border-accent/40 rounded-full w-fit">
@@ -69,20 +69,20 @@ export function ExperienceTabs() {
         {activeTab === 'education' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in duration-500">
             <Card className="relative overflow-hidden group p-8 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-card! hover:bg-card-hover! backdrop-blur-sm flex flex-col">
-              <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <FiBookOpen className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/3 group-hover:text-accent/8 transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
+              <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500" />
+              <FiBookOpen className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/8 lg:text-accent/3 lg:group-hover:text-accent/8 transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
               
               <div className="relative z-10 grow flex flex-col">
                 <div className="flex items-start justify-between gap-4 mb-6">
                   <div>
-                    <h4 className="text-2xl font-extrabold text-foreground tracking-tight group-hover:text-accent transition-colors">
+                    <h4 className="text-2xl font-extrabold text-accent lg:text-foreground tracking-tight lg:group-hover:text-accent transition-colors">
                       Middlesex University, London
                     </h4>
                     <p className="text-accent/90 font-medium mt-2 text-base">
                       BSc IT & Business Information Systems
                     </p>
                   </div>
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 text-accent border-2 border-accent/40 group-hover:scale-110 group-hover:bg-accent/20 group-hover:shadow-[0_0_15px_rgba(var(--accent),0.2)] transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-accent/20 lg:bg-accent/10 flex items-center justify-center shrink-0 text-accent border-2 border-accent/40 scale-110 lg:scale-100 lg:group-hover:scale-110 lg:group-hover:bg-accent/20 shadow-[0_0_15px_rgba(var(--accent),0.2)] lg:shadow-none lg:group-hover:shadow-[0_0_15px_rgba(var(--accent),0.2)] transition-all duration-300">
                     <FiBookOpen className="w-6 h-6" aria-hidden="true" />
                   </div>
                 </div>
@@ -124,20 +124,20 @@ export function ExperienceTabs() {
             </Card>
 
             <Card className="relative overflow-hidden group p-8 border-2 border-border hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 bg-card! hover:bg-card-hover! backdrop-blur-sm flex flex-col">
-              <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <FiAward className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/3 group-hover:text-accent/8 transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
+              <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500" />
+              <FiAward className="absolute -bottom-6 -right-6 w-32 h-32 text-accent/8 lg:text-accent/3 lg:group-hover:text-accent/8 transition-colors duration-500 transform -rotate-12 pointer-events-none" aria-hidden="true" />
               
               <div className="relative z-10 grow flex flex-col">
                 <div className="flex items-start justify-between gap-4 mb-6">
                   <div>
-                    <h4 className="text-2xl font-extrabold text-foreground tracking-tight group-hover:text-accent transition-colors">
+                    <h4 className="text-2xl font-extrabold text-accent lg:text-foreground tracking-tight lg:group-hover:text-accent transition-colors">
                       Aptech Computer Education, Lagos
                     </h4>
                     <p className="text-accent/90 font-medium mt-2 text-base">
                       Advanced Diploma in Software Engineering
                     </p>
                   </div>
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 text-accent border-2 border-accent/40 group-hover:scale-110 group-hover:bg-accent/20 group-hover:shadow-[0_0_15px_rgba(var(--accent),0.2)] transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-accent/20 lg:bg-accent/10 flex items-center justify-center shrink-0 text-accent border-2 border-accent/40 scale-110 lg:scale-100 lg:group-hover:scale-110 lg:group-hover:bg-accent/20 shadow-[0_0_15px_rgba(var(--accent),0.2)] lg:shadow-none lg:group-hover:shadow-[0_0_15px_rgba(var(--accent),0.2)] transition-all duration-300">
                     <FiAward className="w-6 h-6" aria-hidden="true" />
                   </div>
                 </div>
