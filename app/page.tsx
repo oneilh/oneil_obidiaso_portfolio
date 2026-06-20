@@ -150,16 +150,16 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[320px] aspect-square group mt-8 lg:mt-0">
+          <div tabIndex={0} className="relative mx-auto w-full max-w-[280px] sm:max-w-[320px] aspect-square group mt-8 lg:mt-0 outline-none cursor-pointer">
             {/* Offset Border */}
-            <div className="absolute inset-0 border-2 border-accent rounded-sm translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2 pointer-events-none" />
+            <div className="absolute inset-0 border-2 border-accent rounded-sm translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2 group-focus:translate-x-2 group-focus:translate-y-2 pointer-events-none" />
 
             {/* Image Container */}
-            <div className="relative w-full h-full rounded-sm overflow-hidden z-10 bg-accent transition-colors duration-300 group-hover:bg-transparent">
+            <div className="relative w-full h-full rounded-sm overflow-hidden z-10 bg-accent transition-colors duration-300 group-hover:bg-transparent group-focus:bg-transparent">
               <img
                 src="/profile-pic.jpeg"
                 alt="O'Neil Profile"
-                className="w-full h-full object-cover mix-blend-multiply grayscale transition-all duration-300 group-hover:mix-blend-normal group-hover:grayscale-0"
+                className="w-full h-full object-cover mix-blend-multiply grayscale transition-all duration-300 group-hover:mix-blend-normal group-hover:grayscale-0 group-focus:mix-blend-normal group-focus:grayscale-0"
               />
             </div>
           </div>
