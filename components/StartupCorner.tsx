@@ -20,7 +20,7 @@ export function StartupCorner() {
                 {startup.status}
               </span>
             </div>
-            <h3 className="text-2xl font-bold mb-4 mt-2 text-accent lg:text-foreground lg:group-hover:text-accent transition-colors">
+            <h3 className="text-2xl font-bold mb-4 mt-2 group-hover:text-accent transition-colors">
               {startup.name}
             </h3>
             <p className="text-muted-foreground text-sm leading-loose">

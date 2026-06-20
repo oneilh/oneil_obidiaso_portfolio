@@ -25,6 +25,22 @@ export const featuredProjects: any[] = [
   },
   {
     repo: "outsy--app1",
+    image: "https://github.com/oneilh/outsy--app1/raw/master/screenshots/image.png",
+    details: {
+      overview: "Outsy helps people decide where to go out — fast. Get clear, curated outing ideas with the vibe, price, and location already sorted.",
+      features: [],
+      technicalHighlights: [],
+      gallery: [
+        "https://github.com/oneilh/outsy--app1/raw/master/screenshots/image.png",
+        "https://github.com/oneilh/outsy--app1/raw/master/screenshots/image%20copy.png",
+        "https://github.com/oneilh/outsy--app1/raw/master/screenshots/image%20copy%202.png",
+        "https://github.com/oneilh/outsy--app1/raw/master/screenshots/image%20copy%203.png",
+        "https://github.com/oneilh/outsy--app1/raw/master/screenshots/image%20copy%204.png",
+        "https://github.com/oneilh/outsy--app1/raw/master/screenshots/image%20copy%205.png",
+        "https://github.com/oneilh/outsy--app1/raw/master/screenshots/image%20copy%206.png",
+        "https://github.com/oneilh/outsy--app1/raw/master/screenshots/image%20copy%207.png"
+      ]
+    }
   },
   {
     repo: "space_tourism",
