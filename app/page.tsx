@@ -72,6 +72,12 @@ export default async function Home() {
         </div>
       </header>
 
+      <style dangerouslySetInnerHTML={{ __html: `
+        .skill-item:hover {
+          z-index: 50 !important;
+        }
+      `}} />
+
       <main className="grow container max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-12 flex flex-col gap-32">
         {/* Hero Section */}
         <section className="pt-12 md:pt-24 flex flex-col items-start max-w-3xl">
@@ -185,8 +191,8 @@ export default async function Home() {
           <SectionHeading>Technical Arsenal</SectionHeading>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Frontend Card */}
-            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors">
-              <div className="absolute inset-0 bg-linear-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative group/card bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors">
+              <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                 Frontend & Languages
@@ -195,13 +201,13 @@ export default async function Home() {
                 {skills.frontend.map((skill) => (
                   <div
                     key={skill.name}
-                    className="group relative flex items-center gap-2 px-4 py-2 bg-muted/50 hover:bg-background rounded-lg border-2 border-border hover:border-accent hover:-translate-y-1 hover:shadow-md hover:shadow-accent/10 transition-all duration-300 text-sm font-medium cursor-default"
+                    className="skill-item group relative z-10 flex items-center gap-2 px-4 py-2 bg-muted/50 hover:bg-background rounded-lg border-2 border-border hover:border-accent hover:-translate-y-1 hover:shadow-md hover:shadow-accent/10 transition-all duration-300 text-sm font-medium cursor-default"
                   >
                     <skill.icon
                       className={`w-4 h-4 text-accent transition-colors duration-300 ${skill.color}`}
                       aria-hidden="true"
                     />{" "}
-                    <span className="relative z-10">{skill.name}</span>
+                    <span>{skill.name}</span>
                     {/* Tooltip */}
                     <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs px-2.5 py-1 rounded shadow-xl whitespace-nowrap z-20 font-medium">
                       {skill.context}
@@ -213,8 +219,8 @@ export default async function Home() {
             </Card>
 
             {/* BaaS Card */}
-            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors">
-              <div className="absolute inset-0 bg-linear-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <Card className="p-6 flex flex-col justify-center relative group/card bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors">
+              <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90">
                 Backend as a Service
               </h3>
@@ -222,13 +228,13 @@ export default async function Home() {
                 {skills.baas.map((skill) => (
                   <div
                     key={skill.name}
-                    className="group relative flex items-center gap-2 px-4 py-2 bg-muted/50 hover:bg-background rounded-lg border-2 border-border hover:border-accent hover:-translate-y-1 hover:shadow-md hover:shadow-accent/10 transition-all duration-300 text-sm font-medium cursor-default"
+                    className="group relative z-10 hover:z-50 flex items-center gap-2 px-4 py-2 bg-muted/50 hover:bg-background rounded-lg border-2 border-border hover:border-accent hover:-translate-y-1 hover:shadow-md hover:shadow-accent/10 transition-all duration-300 text-sm font-medium cursor-default"
                   >
                     <skill.icon
                       className={`w-4 h-4 text-accent transition-colors duration-300 ${skill.color}`}
                       aria-hidden="true"
                     />{" "}
-                    <span className="relative z-10">{skill.name}</span>
+                    <span>{skill.name}</span>
                     {/* Tooltip */}
                     <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs px-2.5 py-1 rounded shadow-xl whitespace-nowrap z-20 font-medium">
                       {skill.context}
@@ -240,8 +246,8 @@ export default async function Home() {
             </Card>
 
             {/* Tools Card */}
-            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors">
-              <div className="absolute inset-0 bg-linear-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <Card className="md:col-span-2 p-6 flex flex-col justify-center relative group/card bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors">
+              <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90">
                 Tools & Core
               </h3>
@@ -249,13 +255,13 @@ export default async function Home() {
                 {skills.tools.map((skill) => (
                   <div
                     key={skill.name}
-                    className="group relative flex items-center gap-2 px-4 py-2 bg-muted/50 hover:bg-background rounded-lg border-2 border-border hover:border-accent hover:-translate-y-1 hover:shadow-md hover:shadow-accent/10 transition-all duration-300 text-sm font-medium cursor-default"
+                    className="group relative z-10 hover:z-50 flex items-center gap-2 px-4 py-2 bg-muted/50 hover:bg-background rounded-lg border-2 border-border hover:border-accent hover:-translate-y-1 hover:shadow-md hover:shadow-accent/10 transition-all duration-300 text-sm font-medium cursor-default"
                   >
                     <skill.icon
                       className={`w-4 h-4 text-accent transition-colors duration-300 ${skill.color}`}
                       aria-hidden="true"
                     />{" "}
-                    <span className="relative z-10">{skill.name}</span>
+                    <span>{skill.name}</span>
                     {/* Tooltip */}
                     <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs px-2.5 py-1 rounded shadow-xl whitespace-nowrap z-20 font-medium">
                       {skill.context}
@@ -267,8 +273,8 @@ export default async function Home() {
             </Card>
 
             {/* Data & Analytics Card */}
-            <Card className="p-6 flex flex-col justify-center relative overflow-hidden group/card bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors">
-              <div className="absolute inset-0 bg-linear-to-bl from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <Card className="p-6 flex flex-col justify-center relative group/card bg-card! hover:bg-card-hover! backdrop-blur-sm transition-colors">
+              <div className="absolute inset-0 rounded-2xl bg-linear-to-bl from-accent/5 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-xl font-bold mb-6 text-foreground/90">
                 Data & Analytics
               </h3>
@@ -276,13 +282,13 @@ export default async function Home() {
                 {skills.data.map((skill) => (
                   <div
                     key={skill.name}
-                    className="group relative flex items-center gap-2 px-4 py-2 bg-muted/50 hover:bg-background rounded-lg border-2 border-border hover:border-accent hover:-translate-y-1 hover:shadow-md hover:shadow-accent/10 transition-all duration-300 text-sm font-medium cursor-default"
+                    className="group relative z-10 hover:z-50 flex items-center gap-2 px-4 py-2 bg-muted/50 hover:bg-background rounded-lg border-2 border-border hover:border-accent hover:-translate-y-1 hover:shadow-md hover:shadow-accent/10 transition-all duration-300 text-sm font-medium cursor-default"
                   >
                     <skill.icon
                       className={`w-4 h-4 text-accent transition-colors duration-300 ${skill.color}`}
                       aria-hidden="true"
                     />{" "}
-                    <span className="relative z-10">{skill.name}</span>
+                    <span>{skill.name}</span>
                     {/* Tooltip */}
                     <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-foreground text-background text-xs px-2.5 py-1 rounded shadow-xl whitespace-nowrap z-20 font-medium">
                       {skill.context}
